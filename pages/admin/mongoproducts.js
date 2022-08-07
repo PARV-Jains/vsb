@@ -4,7 +4,7 @@ import FullLayout from "../../src/layouts/FullLayout";
 // import Head from "next/head";
 import theme from "../../src/theme/theme";
 import { Grid } from '@mui/material';
-import AllProducts from '../../src/components/dashboard/AllProducts'
+import AllProducts from '../../src/components/dashboard/ProductPerformance'
 import mongoose from 'mongoose';
 import Product from '../../models/Product';
 
