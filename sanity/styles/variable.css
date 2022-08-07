@@ -1,0 +1,11 @@
+/* ./styles/variables.css */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+:root {
+  /* Brand colors */
+  --brand-primary: #cc4a1e;
+  --brand-primary--inverted: #ffffff;
+  --brand-secondary: #ffa800;
+  --brand-secondary--inverted: #3c1609;
+}

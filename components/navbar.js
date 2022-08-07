@@ -1,0 +1,276 @@
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  AiOutlineShoppingCart,
+  AiFillCloseCircle,
+  AiFillPlusCircle,
+  AiFillMinusCircle,
+} from 'react-icons/ai';
+import { BsFillBagCheckFill } from 'react-icons/bs';
+import { MdAccountCircle } from 'react-icons/md';
+import { useRef } from 'react';
+import { useRouter } from 'next/router';
+
+const Navbar = ({
+  logout,
+  sanitylogout,
+  user,
+  sanityuser,
+  cart,
+  addToCart,
+  removeFromCart,
+  clearCart,
+  subTotal,
+  placeholder,
+}) => {
+  const [dropdown, setDropdown] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    Object.keys(cart).length === 0 && setSidebar(true);
+    let exempted = ['/checkout', '/order', '/orders', '/myaccount','/sanitycheckout','/sanitypayorder','sanitymyorders','sanitymyaccount'];
+    if (exempted.includes(router.pathname)) {
+      setSidebar(false);
+    }
+  }, [cart,router.pathname]);
+
+
+
+  const toggleCart = () => {
+    setSidebar(!sidebar);
+  };
+  const ref = useRef();
+    const clickPoint = useRef();
+    const handleFocus = () => {
+      clickPoint.current.style.display = "none";
+  };
+
+  const handleBlur = () => {
+    clickPoint.current.style.display = "block";
+  };
+
+  const [query, setQuery] = useState('');
+  const queryChangeHandler = (e) => {
+    setQuery(e.target.value);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    router.push(`/search?query=${query}`);
+  };
+
+
+  return (
+    <>
+      {!sidebar && (
+        <span
+          onMouseOver={() => {
+            setDropdown(true);
+          }}
+          onMouseLeave={() => {
+            setDropdown(false);
+          }}
+          className="fixed right-9 top-4 z-30 cursor-pointer"
+        >
+          {dropdown && (
+            <div className="absolute right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
+              <ul>
+                <Link href={'/myprofile'}>
+                  <a>
+                    <li className="py-1 hover:text-yellow-700 text-sm font-bold">
+                      My account
+                    </li>
+                  </a>
+                </Link>
+                <Link href={'/sanitymyorders'}>
+                  <a>
+                    <li className="py-1 hover:text-yellow-700 text-sm font-bold">
+                      My Orders
+                    </li>
+                  </a>
+                </Link>
+                <li
+                  onClick={logout}
+                  className="py-1 hover:text-yellow-700 text-sm font-bold"
+                >
+                  Logout
+                </li>
+              </ul>
+            </div>
+          )}
+          {/* {user.value && (
+            <MdAccountCircle className=" hover:text-yellow-500 text-xl md:text-2xl mx-2 cursor-pointer" />
+          )} */}
+          {sanityuser.value && (
+                    
+            <MdAccountCircle className=" hover:text-yellow-500 text-xl md:text-2xl mx-2 cursor-pointer" />
+          )}
+        </span>
+      )}
+      <div
+        className={` border-b border-yellow-500   flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 z-10 bg-white ${
+          !sidebar && `overflow-hidden`
+        }`}
+      >
+        <div className="logo mr-auto md:mx-5">
+          <Link href={'/'}>
+            <a>
+              <Image alt="" src="/main-logo.png" width="256" height="48" />
+            </a>
+          </Link>
+        </div>
+        <div className="nav">
+          <ul className="flex items-center space-x-6 font-bold  md:text-md">
+            <Link href={'/namkeens'}>
+              <a className="mr-5 hover:text-yellow-500">
+                <li>Namkeen</li>
+              </a>
+            </Link>
+            <Link href={'/mix'}>
+              <a className="mr-5 hover:text-yellow-500">
+                <li>Mix</li>
+              </a>
+            </Link>
+            <Link href={'/michchar'}>
+              <a className="mr-5 hover:text-yellow-500">
+                <li>Michchar</li>
+              </a>
+            </Link>
+            <Link href={'/chips'}>
+              <a className="mr-5 hover:text-yellow-500">
+                <li>Chips</li>
+              </a>
+            </Link>
+          </ul>
+        </div>
+
+
+     
+ <form onSubmit={submitHandler}> 
+<div className="items-center px-4 flex justify-center " >
+            <div className="relative mr-3 mt-3 mb-3">
+                <div className="absolute top-3 left-3 items-center"ref={clickPoint} >
+                    <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
+                </div>
+                <input
+                    type="text"
+                    name="query"
+                     onChange={queryChangeHandler}
+                    className="block p-2 pl-10 w-70 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:pl-3"
+                    placeholder={ placeholder || "Laung Ki Namkeen"}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                />
+            </div>
+        </div>
+        </form>
+
+
+
+        <div className="cursor-pointer items-center cart absolute right-0 top-4 mx-5 flex">
+       
+          {!sanityuser.value && (
+          
+            <Link href={'/login'}>
+              <a>
+                <button className="bg-yellow-600 rounded-md px-2 py-1 text-white mx-2 text-sm">
+                  Login
+                </button>
+              </a>
+            </Link>
+          )}
+
+          <AiOutlineShoppingCart
+            onClick={toggleCart}
+            className="text-xl md:text-2xl"
+          />
+        </div>
+        <div
+          ref={ref}
+          className={`w-72 h-[100vh] z-10 sideCart overflow-y-scroll absolute top-0 bg-yellow-100 px-8 py-10 transition-all ${
+            sidebar ? 'right-0' : '-right-96'
+          }`}
+        >
+          <h2 className="text-xl  font-bold text-center">Shopping Cart</h2>
+          <span
+            onClick={toggleCart}
+            className="absolute top-5 right-2 cursor-pointer text-2xl text-yellow-500"
+          >
+            <AiFillCloseCircle />
+          </span>
+          <ol className="list-decimal font-semibold">
+            {Object.keys(cart).length == 0 && (
+              <div className="my-4 font-semibold"> Your cart is empty! </div>
+            )}
+            {Object.keys(cart).map((k) => {
+              return (
+                <li key={k}>
+                  <div className="item flex my-5">
+                    <div className="w-2/3 font-semibold">
+                      {cart[k].name}({cart[k].grams})
+                    </div>
+                    <div className="flex font-semibold items-center w-1/3 justify-center text-lg">
+                      <AiFillPlusCircle
+                        onClick={() => {
+                          addToCart(
+                            k,
+                            1,
+                            cart[k].price,
+                            cart[k].name,
+                            cart[k].size,
+                            cart[k].id,
+                            cart[k].AvailableQty,
+                            cart[k].grams
+                          );
+                        }}
+                        className="cursor-pointer  text-yellow-500"
+                      />
+                      <span className="mx-2 text-sm">{cart[k].qty}</span>
+                      <AiFillMinusCircle
+                        onClick={() => {
+                          removeFromCart(
+                            k,
+                            1,
+                            cart[k].price,
+                            cart[k].name,
+                            cart[k].size,
+                            cart[k].id,
+                            cart[k].AvailableQty,
+                            cart[k].grams
+                          );
+                        }}
+                        className="cursor-pointer text-yellow-500"
+                      />
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+          <div className="total font-bold my-2">Subtotal: ₹{subTotal}</div>
+          <div className="flex">
+            <Link href={'/sanitycheckout'}>
+              <button
+                disabled={Object.keys(cart).length === 0}
+                className="disabled:bg-yellow-300 flex mr-2 text-white bg-yellow-500 border-0 py-2 px-2 focus:outline-none hover:bg-yellow-600 rounded text-sm"
+              >
+                <BsFillBagCheckFill className="m-1" />
+                Checkout
+              </button>
+            </Link>
+            <button
+              disabled={Object.keys(cart).length === 0}
+              onClick={clearCart}
+              className="disabled:bg-yellow-300 flex mr-2 text-white bg-yellow-500 border-0 py-2 px-2 focus:outline-none hover:bg-yellow-600 rounded text-sm"
+            >
+              Clear cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

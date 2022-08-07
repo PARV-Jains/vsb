@@ -1,16 +1,110 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap');
+
+ body {
+  font-family: 'Lato', sans-serif;
+} 
+
+.pt-font {
+  font-family: 'PT Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.card {
+  --squircle-radius: 50px;
+  --squircle-smooth: 1;
+  -mask-image: paint(squircle);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.text-shadow {
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-* {
-  box-sizing: border-box;
+.maylike-products-wrapper{
+  margin-top: 120px;
 }
+.maylike-products-wrapper h1{
+  text-align: center;
+  margin: 50px;
+  color: #324d67;
+  font-size: 28px;
+}
+
+.marquee {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+.maylike-products-container{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.track {
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+  width: 180%;
+}
+.track:hover {
+  animation-play-state: paused;
+}
+.small-images-container{
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.small-image{
+  border-radius: 8px;
+  background-color: #ebebeb;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+.selected-image{
+  background-color:#f1f2b0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.product-detail-image{
+  border-radius: 15px;
+   background-color: #ebebeb;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+.product-detail-image:hover{
+  background-color: #2da2f0;
+}
+.product-detail-container{
+  display: flex;
+ gap: 40px;
+ margin: 20px;
+ margin-top: 60px;
+ color: #324d67;
+flex-wrap: wrap;
+}
+.product-detail-container .product-detail-image{
+  width: 400px;
+  height: 400px;
+}
+@media screen and (max-width:800px) {
+  .track {
+    animation: marquee 10s linear infinite;
+    width: 550%;
+  }
+}
+
