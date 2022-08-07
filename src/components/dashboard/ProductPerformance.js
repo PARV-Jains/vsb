@@ -53,7 +53,7 @@ const AllProducts = ({sanityproductss}) => {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        {/* <TableBody>
           {sanityproductss.map((product) => (
             <TableRow key={product.slug}>
               <TableCell>
@@ -109,7 +109,7 @@ const AllProducts = ({sanityproductss}) => {
               </TableCell>
             </TableRow>
           ))}
-        </TableBody>
+        </TableBody> */}
       </Table>
     </BaseCard>
   );
