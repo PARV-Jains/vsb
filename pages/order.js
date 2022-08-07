@@ -21,7 +21,7 @@ const MyOrder = ({ order,clearCart }) => {
     if(router.query.clearCart == 1){
       clearCart()
     }
-  }, [])
+  }, [clearCart, order.createdAt, router.query.clearCart])
 
   return (
     <div>

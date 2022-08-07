@@ -31,7 +31,7 @@ const [orders, setOrders] = useState([])
   else{
     fetchOrders()
   }
-  }, [])
+  }, [router])
 
   return (
 

@@ -29,7 +29,7 @@ const Forgot = () => {
       router.push('/')
     }
 
-  }, [])
+  }, [router])
 
   const sendResetEmail = async()=> {
     let data = {

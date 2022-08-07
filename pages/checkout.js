@@ -34,7 +34,7 @@ useEffect(() => {
   //   fetchData(sanityuserinfo.token)
 
   // }
-}, [])
+}, [fetchData])
 
 
 useEffect(() => {

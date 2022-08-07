@@ -13,7 +13,7 @@ const Mongoproducts = ({adminproducts}) => {
  useEffect(() => {
    console.log(adminproducts)
    
- }, [])
+ }, [adminproducts])
  
   return (
     <>

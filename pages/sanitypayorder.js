@@ -36,7 +36,7 @@ const MyOrder = ({ sanityorder, clearCart }) => {
     }
     
     runFireworks();
-  }, []);
+  }, [clearCart,sanityorder.createdAt,router.query.clearCart]);
   // const ProductUpdates = async () => {
     // const generateInvoice = e => {
     //   e.preventDefault();

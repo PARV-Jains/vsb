@@ -20,7 +20,7 @@ const Login = () => {
     if (localStorage.getItem('sanityuserinfo')) {
       router.push('/');
     }
-  }, []);
+  }, [router]);
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
