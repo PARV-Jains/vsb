@@ -158,7 +158,7 @@ const Trackyourorder = () => {
                     ) : (
                       !trackingdata[0].sanitydeliverystatus && (
                         <span className="animate-pulse">
-                          Waiting for Payment
+                          Waiting for 2 mins
                         </span>
                       )
                     )}

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 const Forgot = () => {
+  
   const router = useRouter();
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
