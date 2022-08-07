@@ -50,7 +50,9 @@ setForm({
          
           </Stack>
           <br />
-          <Button onClick={SubmitProductForm} variant="outlined" mt={2}>
+          <Button 
+          // onClick={SubmitProductForm}
+           variant="outlined" mt={2}>
             Submit
           </Button>
         </BaseCard>

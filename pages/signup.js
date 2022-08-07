@@ -12,7 +12,8 @@ const Signup = () => {
     if (localStorage.getItem('token')) {
       router.push('/');
     }
-  }, [router]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

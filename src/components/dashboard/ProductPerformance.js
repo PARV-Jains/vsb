@@ -114,5 +114,16 @@ const AllProducts = ({sanityproductss}) => {
     </BaseCard>
   );
 };
+export const getServerSideProps = async () => {
+  const sanityquery = '*[_type == "product"]';
+  const sanityproducts = await client.fetch(sanityquery);
+
+  const productquery = '*[_type == "sanityproduct"] ';
+  const sanityproductss = await client.fetch(productquery);
+
+  return {
+    props: { sanityproducts, sanityproductss },
+  };
+};
 
 export default AllProducts;
