@@ -30,7 +30,7 @@ handler.post(async (req, res) => {
     });
   } else {
     res.status(401).send({ error: 'Invalid email or password' });
-  }
+  } 
 });
 
 export default handler;

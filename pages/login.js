@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import axios from 'axios';
 
 const Login = () => {
   // const [email, setEmail] = useState('');
@@ -67,7 +68,7 @@ const Login = () => {
   // };
 
   const handleSanitysubmit = async(e) =>{
-    e.preventDefault()
+    e.preventDefault();
     const  data  = { sanityemail, sanitypassword };
     let sanityres = await fetch(`/api/sanitylogin`,
       {
