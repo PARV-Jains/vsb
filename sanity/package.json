@@ -16,6 +16,7 @@
   "dependencies": {
     "@sanity/base": "^2.30.3",
     "@sanity/core": "^2.30.3",
+    "@sanity/dashboard": "^2.30.4",
     "@sanity/default-layout": "^2.30.3",
     "@sanity/default-login": "^2.30.3",
     "@sanity/desk-tool": "^2.30.3",
@@ -28,6 +29,7 @@
     "react-dom": "^17.0",
     "sanity-plugin-order-documents": "^0.0.23",
     "sanity-plugin-pdf-generator": "^1.0.13",
+    "sanity-plugin-vercel-deploy": "^2.1.6",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {}
