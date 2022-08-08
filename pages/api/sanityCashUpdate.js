@@ -8,10 +8,10 @@ import pincodes from '../../pincodes.json';
 
 // import bcrypt from 'bcryptjs';
 
- const handler = nc();
+const handler = nc();
 
 //  handler.use(isAuth);
- handler.put( async (req, res) => {
+handler.put(async (req, res) => {
   if (!Object.keys(pincodes).includes(req.body.pincode)) {
     res.status(200).json({
       success: false,
@@ -23,70 +23,67 @@ import pincodes from '../../pincodes.json';
 
   // let product,
   let sanityproductss,
-  sumTotal = 0;
-let cart = JSON.parse(req.cookies.cart);
-if (req.body.subTotal <= 0) {
-  res.status(200).json({
-    success: false,
-    error: 'your cart is empty . Please build your cart and try again ',
-    cartClear: false,
-  });
-  return;
-}
-for (let item in cart) {
-  sumTotal += cart[item].price * cart[item].qty;
-  sanityproductss = await client.fetch(
-    `*[_type == "sanityproduct" && _id == $id]`,
-    {
-      id: cart[item].id,
-    }
-  );
-
-  if (cart[item].AvailableQty < cart[item].qty) {
+    sumTotal = 0;
+  let cart = JSON.parse(req.cookies.cart);
+  if (req.body.subTotal <= 0) {
     res.status(200).json({
       success: false,
-      error: 'some items in your cart went out of stock . please try again ',
-      cartClear: true,
+      error: 'your cart is empty . Please build your cart and try again ',
+      cartClear: false,
     });
     return;
   }
+  for (let item in cart) {
+    sumTotal += cart[item].price * cart[item].qty;
+    sanityproductss = await client.fetch(
+      `*[_type == "sanityproduct" && _id == $id]`,
+      {
+        id: cart[item].id,
+      }
+    );
 
-  if (sanityproductss[0].price != cart[item].price) {
-    console.log(sanityproductss[0].price,cart[item].price);
+    if (cart[item].AvailableQty < cart[item].qty) {
+      res.status(200).json({
+        success: false,
+        error: 'some items in your cart went out of stock . please try again ',
+        cartClear: true,
+      });
+      return;
+    }
+
+    if (sanityproductss[0].price != cart[item].price) {
+      console.log(sanityproductss[0].price, cart[item].price);
+      res.status(200).json({
+        success: false,
+        error:
+          'price of some items in your cart have changed . please try again price',
+        cartClear: true,
+      });
+      return;
+    }
+  }
+  if (sumTotal != req.body.subTotal) {
     res.status(200).json({
       success: false,
       error:
-        'price of some items in your cart have changed . please try again price',
+        'price of some items in your cart have changed . please try again subtotal error',
       cartClear: true,
     });
+
     return;
   }
-}
-if (sumTotal != req.body.subTotal) {
-  res.status(200).json({
-    success: false,
-    error:
-      'price of some items in your cart have changed . please try again subtotal error',
-    cartClear: true,
-  });
-
-  return;
-}
-
 
   let sanityorderid = await client.fetch(
     `*[_type == "sanityorder"] | order(_createdAt desc) [0] ._id`
   );
 
-
   let sanityorderitems = await client.fetch(
     `*[_type == "sanityorder"] | order(_createdAt desc) [0] .sanityorderitems`
   );
 
-
   const projectId = config.projectId;
   const dataset = config.dataset;
-  const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN;
+  const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
 
   for (let i = 0; i < sanityorderitems.length; i++) {
     sanityorderitems[i];
@@ -134,9 +131,5 @@ if (sumTotal != req.body.subTotal) {
       });
   }
 });
-
-
-
-  
 
 export default handler;

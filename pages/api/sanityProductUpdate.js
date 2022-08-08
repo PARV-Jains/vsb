@@ -26,50 +26,52 @@ const handler = async (req, res) => {
 
   const projectId = config.projectId;
   const dataset = config.dataset;
-  const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN;
+  const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
 
   for (let i = 0; i < sanityorderitems.length; i++) {
-    await axios.post(
-     `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}`,  
-     {
-       mutations: [
-         {
-           patch: {
-             id: sanityorderid,
-             set: {
-              codStatus: false,
-              isPaid: true,
-              Sanitytransactionid: req.body.TXNID,
-              STATUS: 'PAYTM',
-              sanitypaymentinfo:req.body.BANKNAME
-             },
-           },
-         },  
-         {
-           patch: {
-             id: sanityorderitems[i].id,
-             set: {
-               AvailableQty: sanityorderitems[i].AvailableQty - sanityorderitems[i].qty,
-             },
-           },
-         },  
-       ],
-     },
-     {
-       headers: {
-         'Content-type': 'application/json',
-         Authorization: `Bearer ${tokenWithWriteAccess}`,
-       },
-     }
-   )
-   .then((response) => {})
-   .catch((error) => {
-     console.log(error.response.data);
-     console.log(error.response.status);
-     console.log(error.response.headers);
-     console.log(error.request);
-   })
- }
+    await axios
+      .post(
+        `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}`,
+        {
+          mutations: [
+            {
+              patch: {
+                id: sanityorderid,
+                set: {
+                  codStatus: false,
+                  isPaid: true,
+                  Sanitytransactionid: req.body.TXNID,
+                  STATUS: 'PAYTM',
+                  sanitypaymentinfo: req.body.BANKNAME,
+                },
+              },
+            },
+            {
+              patch: {
+                id: sanityorderitems[i].id,
+                set: {
+                  AvailableQty:
+                    sanityorderitems[i].AvailableQty - sanityorderitems[i].qty,
+                },
+              },
+            },
+          ],
+        },
+        {
+          headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${tokenWithWriteAccess}`,
+          },
+        }
+      )
+      .then((response) => {})
+      .catch((error) => {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        console.log(error.request);
+      });
+  }
   // await axios.post(
   //     `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}`,
   //     {
@@ -112,7 +114,7 @@ const handler = async (req, res) => {
   //   });
   // console.log(isPaid,oid)
   // return res.send({ message: 'updated successfully' });
-   res.redirect('/sanitypayorder?clearCart=1&_id=' + sanityorderid, 200);
+  res.redirect('/sanitypayorder?clearCart=1&_id=' + sanityorderid, 200);
 };
 
 export default handler;

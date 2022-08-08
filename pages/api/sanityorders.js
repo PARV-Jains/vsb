@@ -11,8 +11,6 @@ const handler = nc();
 
 // handler.use(isAuth);
 handler.post(async (req, res) => {
-
-
   if (!Object.keys(pincodes).includes(req.body.pincode)) {
     res.status(200).json({
       success: false,
@@ -62,19 +60,11 @@ handler.post(async (req, res) => {
       });
       return;
     }
-    if (sanityproductssvar[0] && sanityproductssvar[0].price != cart[item].price) {
-      console.log(sanityproductssvar[0].price,cart[item].price);
-      res.status(200).json({
-        success: false,
-        error:
-          'price of some items in your cart have changed . please try again price',
-        cartClear: true,
-      });
-      return;
-    } 
-   
-    if (sanityproductss[0] && sanityproductss[0].price != cart[item].price) {
-      console.log(sanityproductss[0].price,cart[item].price);
+    if (
+      sanityproductssvar[0] &&
+      sanityproductssvar[0].price != cart[item].price
+    ) {
+      console.log(sanityproductssvar[0].price, cart[item].price);
       res.status(200).json({
         success: false,
         error:
@@ -83,7 +73,17 @@ handler.post(async (req, res) => {
       });
       return;
     }
-   
+
+    if (sanityproductss[0] && sanityproductss[0].price != cart[item].price) {
+      console.log(sanityproductss[0].price, cart[item].price);
+      res.status(200).json({
+        success: false,
+        error:
+          'price of some items in your cart have changed . please try again price',
+        cartClear: true,
+      });
+      return;
+    }
   }
   if (sumTotal != req.body.subTotal) {
     res.status(200).json({
@@ -120,7 +120,7 @@ handler.post(async (req, res) => {
   }
   const projectId = config.projectId;
   const dataset = config.dataset;
-  const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN;
+  const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
   const { data } = await axios.post(
     `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}?returnIds=true`,
     {
@@ -146,7 +146,7 @@ handler.post(async (req, res) => {
       },
     }
   );
-  
+
   let sanityorderid = await client.fetch(
     `*[_type == "sanityorder"] | order(_createdAt desc) [0] ._id`
   );

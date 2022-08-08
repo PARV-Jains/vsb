@@ -14,7 +14,7 @@ handler.post(async (req, res) => {
 
   const projectId = config.projectId;
   const dataset = config.dataset;
-  const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN;
+  const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
   const createMutations = [
     {
       create: {

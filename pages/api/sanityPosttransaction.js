@@ -4,15 +4,14 @@ import client from '../../utils/client';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 const handler = async (req, res) => {
   let sanityorderid = await client.fetch(
     `*[_type == "sanityorder"] | order(_createdAt desc) [0] ._id`
-    );
+  );
   let sanityorder = await client.fetch(
     `*[_type == "sanityorder"] | order(_createdAt desc) [0] `
-    );
-    let slug = await client.fetch(
+  );
+  let slug = await client.fetch(
     `*[_type == "sanityproduct"] | order(_createdAt desc) [0] .slug.current`
   );
   // let AvailableQty = await client.fetch(
@@ -25,7 +24,7 @@ const handler = async (req, res) => {
   //   `*[_type == "sanityproduct"][0].AvailableQty -1`
   // );
   const projectId = config.projectId;
-  const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN;
+  const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
   const dataset = config.dataset;
 
   var paytmChecksum = '';
@@ -98,7 +97,7 @@ const handler = async (req, res) => {
     //   },
     //   body: JSON.stringify(data),
     // })
-    
+
     // function onApprove(data) {
     //   return async function (details) {
     //     try {
@@ -123,71 +122,71 @@ const handler = async (req, res) => {
     let sanityorderitems = await client.fetch(
       `*[_type == "sanityorder"] | order(_createdAt desc) [0] .sanityorderitems`
     );
-  
+
     const projectId = config.projectId;
     const dataset = config.dataset;
-    const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN;
-  
+    const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
+
     for (let i = 0; i < sanityorderitems.length; i++) {
-      await axios.post(
-       `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}`,  
-       {
-         mutations: [
-           {
-             patch: {
-               id: sanityorderid,
-               set: {
-                codStatus: false,
-                isPaid: true,
-                Sanitytransactionid: req.body.TXNID,
-                STATUS: 'PAYTM',
-                sanitypaymentinfo:req.body.BANKNAME
-               },
-             },
-           },  
-           {
-             patch: {
-               id: sanityorderitems[i].id,
-               set: {
-                 AvailableQty: sanityorderitems[i].AvailableQty - sanityorderitems[i].qty,
-               },
-             },
-           },  
-         ],
-       },
-       {
-         headers: {
-           'Content-type': 'application/json',
-           Authorization: `Bearer ${tokenWithWriteAccess}`,
-         },
-       }
-     )
-     .then((response) => {})
-     .catch((error) => {
-       console.log(error.response.data);
-       console.log(error.response.status);
-       console.log(error.response.headers);
-       console.log(error.request);
-     })
-   }
+      await axios
+        .post(
+          `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}`,
+          {
+            mutations: [
+              {
+                patch: {
+                  id: sanityorderid,
+                  set: {
+                    codStatus: false,
+                    isPaid: true,
+                    Sanitytransactionid: req.body.TXNID,
+                    STATUS: 'PAYTM',
+                    sanitypaymentinfo: req.body.BANKNAME,
+                  },
+                },
+              },
+              {
+                patch: {
+                  id: sanityorderitems[i].id,
+                  set: {
+                    AvailableQty:
+                      sanityorderitems[i].AvailableQty -
+                      sanityorderitems[i].qty,
+                  },
+                },
+              },
+            ],
+          },
+          {
+            headers: {
+              'Content-type': 'application/json',
+              Authorization: `Bearer ${tokenWithWriteAccess}`,
+            },
+          }
+        )
+        .then((response) => {})
+        .catch((error) => {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+          console.log(error.request);
+        });
     }
-
-
+  }
 
   if (req.body.STATUS == 'TXN_FAILURE') {
-  //   toast.error("payment failed . please try again", {
-  //    position: 'bottom-center',
-  //    autoClose: 1000,
-  //    hideProgressBar: true,
-  //    closeOnClick: true,
-  //    pauseOnHover: true,
-  //    draggable: true,
-  //    progress: undefined,
-  //  });
-  res.status(400).send({message: 'payment failed'})
- res.redirect('/sanitycheckout')
-    }
-    res.redirect('/sanitypayorder?clearCart=1&_id=' + sanityorderid, 200);
-
+    //   toast.error("payment failed . please try again", {
+    //    position: 'bottom-center',
+    //    autoClose: 1000,
+    //    hideProgressBar: true,
+    //    closeOnClick: true,
+    //    pauseOnHover: true,
+    //    draggable: true,
+    //    progress: undefined,
+    //  });
+    res.status(400).send({ message: 'payment failed' });
+    res.redirect('/sanitycheckout');
+  }
+  res.redirect('/sanitypayorder?clearCart=1&_id=' + sanityorderid, 200);
 };
 export default handler;
