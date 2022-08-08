@@ -67,9 +67,9 @@ const Login = () => {
   // };
 
   const handleSanitysubmit = async(e) =>{
-    e.preventDefault();
+    e.preventDefault()
     const  data  = { sanityemail, sanitypassword };
-    let sanityres = await fetch(`/api/sanitylogin`,
+    let sanityres = await axios.post(`/api/sanitylogin`,
       {
         method: 'POST',
         headers: {
