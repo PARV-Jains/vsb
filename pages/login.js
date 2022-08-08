@@ -69,7 +69,7 @@ const Login = () => {
   const handleSanitysubmit = async(e) =>{
     e.preventDefault()
     const  data  = { sanityemail, sanitypassword };
-    let sanityres = await axios.post(`/api/sanitylogin`,
+    let sanityres = await fetch(`/api/sanitylogin`,
       {
         method: 'POST',
         headers: {
@@ -99,7 +99,7 @@ const Login = () => {
         progress: undefined,
       });
       setTimeout(() => {
-        router.push(process.env.NEXT_PUBLIC_HOST);
+        router.push('/');
       }, 1000);
     } else {
       toast.error(sanityresponse.error, {
