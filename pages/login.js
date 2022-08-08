@@ -7,8 +7,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
   const [sanityemail, setSanityemail] = useState('');
   const [sanitypassword, setSanitypassword] = useState('');
   const router = useRouter();
@@ -67,9 +67,8 @@ const Login = () => {
   // };
 
   const handleSanitysubmit = async(e) =>{
-    e.preventDefault()
+    e.preventDefault();
     const  data  = { sanityemail, sanitypassword };
-   
     let sanityres = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/sanitylogin`,
       {
         method: 'POST',
@@ -80,7 +79,6 @@ const Login = () => {
       }
     );
     let sanityresponse = await sanityres.json();
-   
     setSanityemail('');
     setSanitypassword('');
     if (sanityresponse.success) {
@@ -116,13 +114,13 @@ const Login = () => {
     }
   }
 
-  const handleChange = (e) => {
-    if (e.target.name === 'email') {
-      setEmail(e.target.value);
-    } else if (e.target.name === 'password') {
-      setPassword(e.target.value);
-    }
-  };
+  // const handleChange = (e) => {
+  //   if (e.target.name === 'email') {
+  //     setEmail(e.target.value);
+  //   } else if (e.target.name === 'password') {
+  //     setPassword(e.target.value);
+  //   }
+  // };
   const handleSanitychange = (e) => {
     if (e.target.name === 'sanityemail') {
       setSanityemail(e.target.value);
@@ -327,7 +325,7 @@ const Login = () => {
                     />
                   </svg>
                 </span>
-                Sign in
+                Log in
               </button>
             </div>
           </form>
