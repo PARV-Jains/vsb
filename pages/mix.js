@@ -8,7 +8,7 @@ import ProductItem from '../components/ProductItem';
 import client from '../utils/client';
 
 
-const Mix = ({ products , sanityproductss }) => {
+const Mix = ({sanityproductss }) => {
   return (
     <div>
       <Head>
@@ -73,40 +73,42 @@ const Mix = ({ products , sanityproductss }) => {
 };
 
 export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
-  }
-  let products = await Product.find({category : 'mix'});
-  let mixs = {};
-  for (let item of products) {
-    if (item.title in mixs) {
-      if (
-        !mixs[item.title].color.includes(item.color) &&
-        item.availableQty > 0
-      ) {
-        mixs[item.title].color.push(item.color);
-      }
-      if (
-        !mixs[item.title].size.includes(item.size) &&
-        item.availableQty > 0
-      ) {
-        mixs[item.title].size.push(item.size);
-      }
-    } else {
-      mixs[item.title] = JSON.parse(JSON.stringify(item));
-      if (item.availableQty > 0) {
-        mixs[item.title].color = [item.color];
-        mixs[item.title].size = [item.size];
-      }
-    }
-  }
-  console.log(mixs);
+  // if (!mongoose.connections[0].readyState) {
+  //   await mongoose.connect(process.env.MONGO_URI);
+  // }
+  // let products = await Product.find({category : 'mix'});
+  // let mixs = {};
+  // for (let item of products) {
+  //   if (item.title in mixs) {
+  //     if (
+  //       !mixs[item.title].color.includes(item.color) &&
+  //       item.availableQty > 0
+  //     ) {
+  //       mixs[item.title].color.push(item.color);
+  //     }
+  //     if (
+  //       !mixs[item.title].size.includes(item.size) &&
+  //       item.availableQty > 0
+  //     ) {
+  //       mixs[item.title].size.push(item.size);
+  //     }
+  //   } else {
+  //     mixs[item.title] = JSON.parse(JSON.stringify(item));
+  //     if (item.availableQty > 0) {
+  //       mixs[item.title].color = [item.color];
+  //       mixs[item.title].size = [item.size];
+  //     }
+  //   }
+  // }
+  // console.log(mixs);
 
   const productquery = '*[_type == "sanityproduct"&& category == "mix"]';
   const sanityproductss = await client.fetch(productquery);
 
   return {
-    props: { products: JSON.parse(JSON.stringify(mixs)) , sanityproductss }, // will be passed to the page component as props
+    props: { 
+      // products: JSON.parse(JSON.stringify(mixs)) ,
+       sanityproductss }, // will be passed to the page component as props
   };
 }
 

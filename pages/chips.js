@@ -7,7 +7,7 @@ import Head from 'next/head';
 import ProductItem from '../components/ProductItem';
 import client from '../utils/client';
 
-const Chips = ({ products, sanityproductss }) => {
+const Chips = ({ sanityproductss }) => {
   return (
     <div>
       <Head>
@@ -104,41 +104,41 @@ const Chips = ({ products, sanityproductss }) => {
 };
 
 export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
-  }
-  let products = await Product.find({ category: 'chips' });
-  let chipss = {};
-  for (let item of products) {
-    if (item.title in chipss) {
-      if (
-        !chipss[item.title].color.includes(item.color) &&
-        item.availableQty > 0
-      ) {
-        chipss[item.title].color.push(item.color);
-      }
-      if (
-        !chipss[item.title].size.includes(item.size) &&
-        item.availableQty > 0
-      ) {
-        chipss[item.title].size.push(item.size);
-      }
-    } else {
-      chipss[item.title] = JSON.parse(JSON.stringify(item));
-      if (item.availableQty > 0) {
-        chipss[item.title].color = [item.color];
-        chipss[item.title].size = [item.size];
-      }
-    }
-  }
-
- 
+  // if (!mongoose.connections[0].readyState) {
+  //   await mongoose.connect(process.env.MONGO_URI);
+  // }
+  // let products = await Product.find({ category: 'chips' });
+  // let chipss = {};
+  // for (let item of products) {
+  //   if (item.title in chipss) {
+  //     if (
+  //       !chipss[item.title].color.includes(item.color) &&
+  //       item.availableQty > 0
+  //     ) {
+  //       chipss[item.title].color.push(item.color);
+  //     }
+  //     if (
+  //       !chipss[item.title].size.includes(item.size) &&
+  //       item.availableQty > 0
+  //     ) {
+  //       chipss[item.title].size.push(item.size);
+  //     }
+  //   } else {
+  //     chipss[item.title] = JSON.parse(JSON.stringify(item));
+  //     if (item.availableQty > 0) {
+  //       chipss[item.title].color = [item.color];
+  //       chipss[item.title].size = [item.size];
+  //     }
+  //   }
+  // }
 
   const productquery = '*[_type == "sanityproduct"&& category == "chips"]';
   const sanityproductss = await client.fetch(productquery);
 
   return {
-    props: { products: JSON.parse(JSON.stringify(chipss)), sanityproductss }, // will be passed to the page component as props
+    props: { 
+      // products: JSON.parse(JSON.stringify(chipss)),
+       sanityproductss }, // will be passed to the page component as props
   };
 }
 
