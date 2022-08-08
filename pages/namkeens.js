@@ -9,7 +9,7 @@ import client from '../utils/client';
 import { urlForThumbnail } from '../utils/image';
 import ProductItem from '../components/ProductItem';
 
-const Namkeens = ({ products,sanityproductss}) => {
+const Namkeens = ({ sanityproductss}) => {
   // const [state, setState] = useState({
   //   sanityproductss:[],
   //   error: '',
@@ -42,7 +42,7 @@ const Namkeens = ({ products,sanityproductss}) => {
       <section className="text-gray-600 body-font min-h-screen">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4 justify-center mx-5">
-            {Object.keys(products).map((item) => {
+            {/* {Object.keys(products).map((item) => {
               {
                 Object.keys(products).length === 0 && (
                   <p>
@@ -111,7 +111,7 @@ const Namkeens = ({ products,sanityproductss}) => {
                   </div>
                 </Link>
               );
-            })}
+            })} */}
 
 <div className="flex flex-wrap justify-center gap-5 ">
      {sanityproductss.map((newsanityitem) => (
@@ -136,36 +136,36 @@ const Namkeens = ({ products,sanityproductss}) => {
 };
 
 export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
-  }
-  let products = await Product.find({ category: 'namkeen' });
-  let namkeens = {};
-  for (let item of products) {
-    if (item.title in namkeens) {
-      if (
-        !namkeens[item.title].color.includes(item.color) &&
-        item.availableQty > 0
-      ) {
-        namkeens[item.title].color.push(item.color);
-      }
-      if (
-        !namkeens[item.title].size.includes(item.size) &&
-        item.availableQty > 0
-      ) {
-        namkeens[item.title].size.push(item.size);
-      }
-    } else {
-      namkeens[item.title] = JSON.parse(JSON.stringify(item));
-      if (item.availableQty > 0) {
-        namkeens[item.title].color = [item.color];
-        namkeens[item.title].size = [item.size];
-      } else {
-        namkeens[item.title].color = [];
-        namkeens[item.title].size = [];
-      }
-    }
-  }
+  // if (!mongoose.connections[0].readyState) {
+  //   await mongoose.connect(process.env.MONGO_URI);
+  // }
+  // let products = await Product.find({ category: 'namkeen' });
+  // let namkeens = {};
+  // for (let item of products) {
+  //   if (item.title in namkeens) {
+  //     if (
+  //       !namkeens[item.title].color.includes(item.color) &&
+  //       item.availableQty > 0
+  //     ) {
+  //       namkeens[item.title].color.push(item.color);
+  //     }
+  //     if (
+  //       !namkeens[item.title].size.includes(item.size) &&
+  //       item.availableQty > 0
+  //     ) {
+  //       namkeens[item.title].size.push(item.size);
+  //     }
+  //   } else {
+  //     namkeens[item.title] = JSON.parse(JSON.stringify(item));
+  //     if (item.availableQty > 0) {
+  //       namkeens[item.title].color = [item.color];
+  //       namkeens[item.title].size = [item.size];
+  //     } else {
+  //       namkeens[item.title].color = [];
+  //       namkeens[item.title].size = [];
+  //     }
+  //   }
+  // }
   const sanityquery = '*[_type == "product"]';
   const sanityproducts = await client.fetch(sanityquery);
 
@@ -173,7 +173,9 @@ export async function getServerSideProps(context) {
   const sanityproductss = await client.fetch(productquery);
 
   return {
-    props: { products: JSON.parse(JSON.stringify(namkeens)), sanityproducts, sanityproductss}, // will be passed to the page component as props
+    props: { 
+      // products: JSON.parse(JSON.stringify(namkeens)),
+       sanityproducts, sanityproductss}, // will be passed to the page component as props
   };
 }
 
