@@ -69,7 +69,7 @@ const Login = () => {
   const handleSanitysubmit = async(e) =>{
     e.preventDefault();
     const  data  = { sanityemail, sanitypassword };
-    let sanityres = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/sanitylogin`,
+    let sanityres = await fetch(`/api/sanitylogin`,
       {
         method: 'POST',
         headers: {
