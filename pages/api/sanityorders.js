@@ -91,6 +91,7 @@ handler.post(async (req, res) => {
       error:
         'price of some items in your cart have changed . please try again subtotal error',
       cartClear: true,
+      
     });
 
     return;

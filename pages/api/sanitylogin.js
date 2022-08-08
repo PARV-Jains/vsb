@@ -19,6 +19,7 @@ handler.post(async (req, res) => {
     phone:  sanityuser.phone,
     });
     res.status(200).json({success: true, sanityusertoken, email: sanityuser.email});
+    return;
     res.send({
       _id: sanityuser._id,
       name: sanityuser.name,
@@ -31,6 +32,8 @@ handler.post(async (req, res) => {
   } else {
     res.status(401).send({ error: 'Invalid email or password' });
   } 
+  
 });
+
 
 export default handler;
