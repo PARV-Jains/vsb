@@ -268,6 +268,7 @@ handler.post(async (req, res) => {
 
   let myr = await requestAsync();
   res.status(200).json(myr);
+  return;
   res.status(201).send(data.results[0].id);
 });
 export default handler;
