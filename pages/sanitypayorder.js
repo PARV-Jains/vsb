@@ -346,10 +346,10 @@ const MyOrder = ({ sanityorder, clearCart }) => {
 };
 
 export async function getServerSideProps(context) {
-  if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
-  }
-  let order = await Order.findById(context.query.id);
+  // if (!mongoose.connections[0].readyState) {
+  //   await mongoose.connect(process.env.MONGO_URI);
+  // }
+  // let order = await Order.findById(context.query.id);
   //  let sanityorder = await client.fetch(`*[_type == "sanityorder" && oid == oid]| order(_createdAt desc) [0] .oid`);
   let sanityorder = await client.fetch(
     `*[_type == "sanityorder"  && _id == $id][0]`,
@@ -359,7 +359,7 @@ export async function getServerSideProps(context) {
   );
   return {
     props: {
-      order: JSON.parse(JSON.stringify(order)),
+      // order: JSON.parse(JSON.stringify(order)),
       sanityorder: JSON.parse(JSON.stringify(sanityorder)),
     }, // will be passed to the page component as props
   };
