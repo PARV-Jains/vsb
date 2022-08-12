@@ -157,6 +157,8 @@ function MyApp({ Component, pageProps }) {
     setKey(Math.random());
     router.push('/');
     localStorage.removeItem('sanityuserinfo');
+    localStorage.removeItem('updatesanityuserinfo');
+    localStorage.removeItem('updatepasssanityuserinfo');
     setSanityuser({ value: null });
     setKey(Math.random());
     router.push('/');

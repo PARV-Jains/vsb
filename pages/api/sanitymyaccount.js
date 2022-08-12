@@ -23,10 +23,10 @@ handler.put(async (req, res) => {
             set: {
               name: req.body.sanityname,
               email: req.body.sanityemail,
-              password: bcrypt.hashSync(req.body.sanitypassword),
+              password:req.body.npassword && bcrypt.hashSync(req.body.npassword),
               address: req.body.address,
-              pincode: req.body.pincode,
-              phone: req.body.phone,
+              pincode:req.body.pincode,
+              phone: req.body.phone ,
             },
           },
         },
@@ -47,7 +47,7 @@ handler.put(async (req, res) => {
     address: req.body.address,
     pincode: req.body.pincode,
     phone: req.body.phone,
-    value: sanityuserinfo.token,
+    // value: sanityuserinfo.token,
   };
   const sanityusertoken = signToken(sanityuser);
   res.send({ ...sanityuser, sanityusertoken });

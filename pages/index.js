@@ -36,6 +36,23 @@ const Home = ({sanityproductss}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+{/* <div className="flex flex-col items-center">
+<div className="bigCol flex flex-col lg:flex-row">
+  <div className="row flex flex-row">
+    <div className="row1 w-full lg:w-[800px]">
+      <div className="imagebox bg-orange-300 border">
+        <Link href="/namkeens">
+          <span style={{boxSizing:"border-box" ,cursor: "pointer",display:"block", width:"initial" ,height:"initial" ,background:"none" ,opacity:"1" ,border:"0" ,margin:"0", padding:"0"  , paddingTop:"42.5%"}}>
+<span style={{boxSizing:"border-box" , display:"block", width:"initial" ,height:"initial" ,background:"none" ,opacity:"1" ,border:"0" ,margin:"0", padding:"0"  , paddingTop:"42.5%"}}></span>
+<img src="./banner.png" alt="" />
+          </span>
+
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+</div> */}
       <div className="text-center">
         <Image priority alt="" src="/header.png" width="1920px" height="744px"></Image>
       </div>
@@ -43,6 +60,19 @@ const Home = ({sanityproductss}) => {
       <h1 className='text-4xl ml-4 font-medium my-12 animate-[load_1s_ease-in-out]'>Fresh Namkeen </h1>
       <div className="h-1 w-20 bg-yellow-500 rounded"></div>
       
+      {/* <div className="container px-5 py-10 mx-auto">
+          <section className="text-gray-600 body-font">
+            <div className="container px-5 py-10 mx-auto">
+              <div className="flex flex-wrap w-full mb-4">
+                <div className="lg:w-1/2 w-full m-6 lg:mb-0">
+                  <h1 className="sm:text-3xl text-2xl font-medium title-font m-2 text-gray-900">Fresh Namkeen </h1>
+                  <div className="h-1 w-20 bg-yellow-500 rounded">
+                  </div>
+                </div>
+                </div>
+                </div>
+                </section>
+                </div> */}
       
       
           <div className="flex flex-wrap justify-center gap-5 ">

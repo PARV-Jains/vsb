@@ -8,11 +8,11 @@ import axios from 'axios';
 const MyProfile = () => {
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
-  const [sanityname, setSanityname] = useState('');
+  const [sanityname, setSanityname] = useState();
   const [sanityemail, setSanityemail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [pincode, setPincode] = useState('');
+  const [phone, setPhone] = useState();
+  const [address, setAddress] = useState();
+  const [pincode, setPincode] = useState();
   // const [user, setUser] = useState({ value: null });
   const [sanityuser, setSanityuser] = useState({ value: null });
   // const [password, setPassword] = useState('');
@@ -41,8 +41,8 @@ const MyProfile = () => {
       setSanityemail(sanityuserinfo.email);
       // fetchData(sanityuserinfo.token);
     }
-  }, [router]);
 
+  }, [router]);
   //  const fetchData = async (sanityusertoken) => {
   //   let data = { sanityusertoken: sanityusertoken };
   
@@ -60,7 +60,7 @@ const MyProfile = () => {
   //   setPincode(res.pincode);
   //   setPhone(res.phone);
   // };
-
+  
   const handleSanitysubmit = async () => {
     // e.preventDefault();
     // const sanityuserinfo = JSON.parse(localStorage.getItem('sanityuserinfo'));
@@ -78,10 +78,17 @@ const MyProfile = () => {
         },
         { headers: { authorization: `Bearer ${sanityuserinfo.token}` } }
       );
+      // add cookies in login page of user data then fetch the token from it in sanitymyaccount api in value field
       // dispatch({ type: 'USER_LOGIN', payload: data });
-      localStorage.setItem('sanityuserinfo', JSON.stringify(data));
+      localStorage.setItem('updatesanityuserinfo', JSON.stringify(data));
       alert('Profile updated successfully');
       router.push(`/`)
+         // setSanityname('');
+    // setSanityemail('');
+    // setSanitypassword('');
+    // setAddress('');
+    // setPhone('');
+    // setPincode('');
     } catch (err) {
       alert((err));
     }
@@ -163,18 +170,31 @@ const MyProfile = () => {
           '/api/sanitymyaccount',
           {
             sanitypassword,
-           cpassword,
+            cpassword,
             npassword,
           },
           { headers: { authorization: `Bearer ${sanityuserinfo.token}` } }
         );
         // dispatch({ type: 'USER_LOGIN', payload: data });
-        localStorage.setItem('sanityuserinfo', JSON.stringify(data));
+        localStorage.setItem('updatepasssanityuserinfo', JSON.stringify(data));
         alert('Profile updated successfully');
       } catch (err) {
         alert((err));
       }
     }
+    if (npassword != cpassword) {
+      
+      toast.error("Passwords Does Not Match", {
+        position: 'top-left',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    }
+    
     //   let a = await fetch(
     //     `${process.env.NEXT_PUBLIC_HOST}/api/sanitymyaccount`,
     //     {
@@ -397,7 +417,7 @@ const MyProfile = () => {
       </button>
       <h2 className="font-semibold text-xl">2. Change Password</h2>
       <div className="mx-auto flex my-2">
-        <div className="px-2 w-1/2">
+        {/* <div className="px-2 w-1/2">
           <div className="mb-4">
             <label
               htmlFor="password"
@@ -415,7 +435,7 @@ const MyProfile = () => {
               className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
-        </div>
+        </div> */}
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label
