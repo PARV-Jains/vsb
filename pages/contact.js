@@ -37,9 +37,9 @@ const Contact = () => {
               className="underline text-blue-600"
               rel="noreferrer"
               target="_blank"
-              href="https://wa.me/9749560007?text=Hi,%20I%20need%20to%20enquire%20about%20products%20on%20CodesWear"
+              href="https://wa.me/9340317836?text=Hi,%20I%20need%20to%20enquire%20about%20products%20on%20VikasSevBhandar"
             >
-              +91 974 95 60007
+              +91 9340317836
             </a>
             <br />
             Email: 2006parvjain@gmail.com

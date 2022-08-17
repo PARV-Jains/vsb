@@ -7,14 +7,36 @@ import NextNProgress from 'nextjs-progressbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import jsCookie from 'js-cookie';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const router = useRouter();
   const [key, setKey] = useState();
+  const [footerkey, seFootertKey] = useState();
   const [user, setUser] = useState({ value: null });
   const [sanityuser, setSanityuser] = useState({ value: null });
+  const theme = createTheme({
+    
+  })
+
+  useEffect(() => {
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: '8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6',
+        safari_web_id:
+          'web.onesignal.auto.215a98b6-2876-4938-a894-401760de5038',
+        notifyButton: {
+          enable: true,
+        },
+        allowLocalhostAsSecureOrigin: true,
+      });
+    });
+  }, []);
+
 
   useEffect(() => {
     try {
@@ -184,6 +206,7 @@ function MyApp({ Component, pageProps }) {
         height={4}
         showOnShallow={true}
       />
+      <ThemeProvider theme={theme}>
       {key && (
         <Navbar
           logout={logout}
@@ -210,7 +233,22 @@ function MyApp({ Component, pageProps }) {
         subTotal={subTotal}
         {...pageProps}
       />
-      <Footer />
+      
+        <Footer
+          logout={logout}
+          sanitylogout={sanitylogout}
+          user={user}
+          sanityuser={sanityuser}
+          footerkey={footerkey}
+          buyNow={buyNow}
+          cart={cart}
+          addToCart={addToCart}
+          // addSanityToCart={addSanityToCart}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          subTotal={subTotal}
+        />
+    </ThemeProvider>
     </>
   );
 }

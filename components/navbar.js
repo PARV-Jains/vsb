@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import {Transition} from '@headlessui/react'
 import Link from 'next/link';
 import {
   AiOutlineShoppingCart,
@@ -11,6 +12,8 @@ import { BsFillBagCheckFill } from 'react-icons/bs';
 import { MdAccountCircle } from 'react-icons/md';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
+import {GiHamburgerMenu} from 'react-icons/gi';
+import {RiArrowDropDownLine} from 'react-icons/ri';
 
 const Navbar = ({
   logout,
@@ -26,10 +29,12 @@ const Navbar = ({
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const [sidebar, setSidebar] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    Object.keys(cart).length === 0 && setSidebar(true);
+    Object.keys(cart).length === 0 && setSidebar(false);
+    // Object.keys(cart).length === 0 && setSidebar(true);
     let exempted = ['/checkout', '/order', '/orders', '/myaccount','/sanitycheckout','/sanitypayorder','sanitymyorders','sanitymyaccount'];
     if (exempted.includes(router.pathname)) {
       setSidebar(false);
@@ -71,7 +76,7 @@ const Navbar = ({
           onMouseLeave={() => {
             setDropdown(false);
           }}
-          className="fixed right-9 top-4 z-30 cursor-pointer"
+          className="fixed right-9 hidden md:block top-4 z-30 cursor-pointer"
         >
           {dropdown && (
             <div className="absolute right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
@@ -108,45 +113,156 @@ const Navbar = ({
           )}
         </span>
       )}
+      
       <div
-        className={` border-b border-yellow-500   flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 z-10 bg-white ${
+        className={`border-b border-yellow-500  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 z-10 bg-white ${
           !sidebar && `overflow-hidden`
         }`}
       >
-        <div className="logo mr-auto md:mx-5">
-          <Link href={'/'}>
+        <div className="logo ">
+          <Link href='/'>
             <a>
               <Image alt="" src="/main-logo.png" width="256" height="48" />
             </a>
           </Link>
         </div>
-        <div className="nav">
+        <div className="nav hidden md:block">
+        {/* <div className="p-10"> */}
+
+        {/* <div id="dropdown" className="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+    <ul className="py-1" aria-labelledby="dropdownButton">
+      <li>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+      </li>
+      <li>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+      </li>
+      <li>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+      </li>
+      <li>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+      </li>
+    </ul>
+</div> */}
+
+{/* </div> */}
           <ul className="flex items-center space-x-6 font-bold  md:text-md">
             <Link href={'/namkeens'}>
-              <a className="mr-5 hover:text-yellow-500">
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg" >
                 <li>Namkeen</li>
               </a>
+              
             </Link>
             <Link href={'/mix'}>
-              <a className="mr-5 hover:text-yellow-500">
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                 <li>Mix</li>
               </a>
             </Link>
+           
             <Link href={'/michchar'}>
-              <a className="mr-5 hover:text-yellow-500">
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                 <li>Michchar</li>
               </a>
             </Link>
             <Link href={'/chips'}>
-              <a className="mr-5 hover:text-yellow-500">
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                 <li>Chips</li>
               </a>
             </Link>
           </ul>
+     
+
         </div>
 
+        {/* <div className="mr-10 flex md:hidden">
+        <button
+								onClick={() => setIsOpen(!isOpen)}
+								type="button"
+								className="bg-yellow-600 inline-flex items-center justify-center p-2 rounded-md text-white  hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-800 focus:ring-white"
+								aria-controls="mobile-menu"
+								aria-expanded="false"
+							><span className="sr-only">Open main menu</span>
+              {!isOpen ? (
+									<svg
+										className="block h-6 w-6"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
+											d="M4 6h16M4 12h16M4 18h16"
+										/>
+									</svg>
+								) : (
+									<svg
+										className="block h-6 w-6"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
+											d="M6 18L18 6M6 6l12 12"
+										/>
+									</svg>
+								)}
+              </button> 
+      </div>
+      <Transition
+					show={isOpen}
+					enter="transition ease-out duration-100 transform"
+					enterFrom="opacity-0 scale-95"
+					enterTo="opacity-100 scale-100"
+					leave="transition ease-in duration-75 transform"
+					leaveFrom="opacity-100 scale-100"
+					leaveTo="opacity-0 scale-95"
+				>
+					{(ref) => (
+						<div className="md:hidden" id="mobile-menu">
+							<div
+								ref={ref}
+								className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
+							>
+							 <ul className="flex items-center space-x-6 font-bold  md:text-md">
+            <Link href={'/namkeens'}>
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg" >
+                <li>Namkeen</li>
+              </a>
+              
+            </Link>
+            <Link href={'/mix'}>
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                <li>Mix</li>
+              </a>
+            </Link>
+           
+            <Link href={'/michchar'}>
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                <li>Michchar</li>
+              </a>
+            </Link>
+            <Link href={'/chips'}>
+              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                <li>Chips</li>
+              </a>
+            </Link>
+          </ul>
+							</div>
+						</div>
+					)}
+				</Transition> */}
 
-     
+
  <form onSubmit={submitHandler}> 
 <div className="items-center px-4 flex justify-center " >
             <div className="relative mr-3 mt-3 mb-3">
@@ -165,16 +281,13 @@ const Navbar = ({
             </div>
         </div>
         </form>
-
-
-
-        <div className="cursor-pointer items-center cart absolute right-0 top-4 mx-5 flex">
+        <div className="cursor-pointer items-center cart absolute right-0 top-4 mx-5 flex ">
        
           {!sanityuser.value && (
           
             <Link href={'/login'}>
               <a>
-                <button className="bg-yellow-600 rounded-md px-2 py-1 text-white mx-2 text-sm">
+                <button className="bg-yellow-600 hidden md:block rounded-md px-2 py-1 text-white mx-2 text-sm">
                   Login
                 </button>
               </a>
@@ -183,16 +296,19 @@ const Navbar = ({
 
           <AiOutlineShoppingCart
             onClick={toggleCart}
-            className="text-xl md:text-2xl"
+            className="text-xl hidden md:block md:text-2xl"
+            
           />
+         
         </div>
+      
         <div
           ref={ref}
-          className={`w-72 h-[100vh] z-10 sideCart overflow-y-scroll absolute top-0 bg-yellow-100 px-8 py-10 transition-all ${
+          className={`w-72  h-[100vh] z-10 sideCart overflow-y-scroll absolute top-0 bg-yellow-100 px-8 py-10 transition-all ${
             sidebar ? 'right-0' : '-right-96'
           }`}
         >
-          <h2 className="text-xl  font-bold text-center">Shopping Cart</h2>
+          <h2 className="text-xl md:text-2xl m-0 text-heading font-bold ">Shopping Cart</h2>
           <span
             onClick={toggleCart}
             className="absolute top-5 right-2 cursor-pointer text-2xl text-yellow-500"
@@ -266,10 +382,13 @@ const Navbar = ({
             >
               Clear cart
             </button>
+            
           </div>
         </div>
       </div>
+    
     </>
+    
   );
 };
 

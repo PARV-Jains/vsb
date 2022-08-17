@@ -9,6 +9,7 @@ import Head from 'next/head';
 import Navbar from '../components/navbar';
 import SearchResult from '../components/ProductItem';
 import ProductItem from '../components/ProductItem';
+import {GiCancel} from 'react-icons/gi'
 
 export default function Search({sanityproductss}) {
   const router = useRouter();
@@ -85,7 +86,7 @@ export default function Search({sanityproductss}) {
                 Results
                 {query !== 'all' && query !== '' && ' : ' + query}
                 {(query !== 'all' && query !== '') || 'hello from error' ? (
-                  <button onClick={() => router.push('/search')}>X</button>
+                 <button onClick={() => router.push(`/search`)}>{<GiCancel className="ml-4 mt-3 text-md"/>}</button>
                 ) : null}
               </div>
             </div>

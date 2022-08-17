@@ -496,7 +496,7 @@ const Slug = ({
         </div>
       </section>
 
-      <div>
+      {/* <div>
         <div className="maylike-products-wrapper">
           <h1>You May also Like </h1>
           <div className="maylike-products-container track">
@@ -510,7 +510,7 @@ const Slug = ({
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
