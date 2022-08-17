@@ -459,7 +459,7 @@ const Slug = ({
      
       
 
-        <div className="maylike-products-wrapper">
+        {/* <div className="maylike-products-wrapper">
         <h1>You May also Like </h1>
         <div className="maylike-products-container track">
         <div className="flex flex-wrap justify-center gap-5 marquee  ">
@@ -471,7 +471,7 @@ const Slug = ({
           ))}
         </div>
         </div>
-        </div>
+        </div> */}
      
     </>
   );
