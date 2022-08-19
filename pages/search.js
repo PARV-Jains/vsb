@@ -68,12 +68,17 @@ export default function Search({sanityproductss}) {
 
   return (
     <div>
-      <Head>
-        <title>Search Products - Vikas Sev Bhandar</title>
+        <Head>
+        <title>Search {query}- Vikas Sev Bhandar</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
+        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:title" content="Vikas Sev Bhandar" />
+  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:url" content="https://vsb.vercel.com/" />
+  <meta property="og:type" content="website" />
       </Head>
       <div>
         <div  container spacing={2}>

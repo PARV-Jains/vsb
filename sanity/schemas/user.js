@@ -36,6 +36,11 @@ export default {
    title: 'Phone',
    type: 'string',
  },
+ {
+   name: 'isAdmin',
+   title: 'Admin',
+   type: 'boolean',
+ },
 
 ]
 }

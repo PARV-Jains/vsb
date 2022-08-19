@@ -84,6 +84,11 @@ const MyOrder = ({ sanityorder, clearCart }) => {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
+        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:title" content="Vikas Sev Bhandar" />
+  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:url" content="https://vsb.vercel.com/" />
+  <meta property="og:type" content="website" />
       </Head>
       <ToastContainer
         position="top-left"

@@ -48,12 +48,17 @@ const [sanityorders, setSanityorders] = useState([])
 
     <div className='min-h-screen'>
       <Head>
-    <title>Your orders - Vikas Sev Bhandar</title>
-    <meta
-      name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
-    />
-  </Head>
+        <title>Your Orders - Vikas Sev Bhandar</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:title" content="Vikas Sev Bhandar" />
+  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:url" content="https://vsb.vercel.com/" />
+  <meta property="og:type" content="website" />
+      </Head>
       <div className="container mx-auto">
         <h1 className='font-semibold text-2xl text-center p-6'>My Orders</h1>
         <div className="flex flex-col">

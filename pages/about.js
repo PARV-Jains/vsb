@@ -1,9 +1,22 @@
+import Head from "next/head";
 import Link from "next/link";
 import React from 'react'
 
 const About = () => {
   return (
     <div>
+        <Head>
+        <title>About Us - Vikas Sev Bhandar</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:title" content="Vikas Sev Bhandar" />
+  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:url" content="https://vsb.vercel.com/" />
+  <meta property="og:type" content="website" />
+      </Head>
       <section className="text-gray-600 body-font">
   <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="/main-logo.png"/>

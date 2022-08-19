@@ -25,6 +25,7 @@ handler.post(async (req, res) => {
         address: req.body.address,
         pincode: req.body.pincode,
         phone: req.body.phone,
+      
       },
     },
   ];

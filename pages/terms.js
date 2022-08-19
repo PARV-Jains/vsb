@@ -1,8 +1,21 @@
+import Head from 'next/head'
 import React from 'react'
 
 const Terms = () => {
   return (
     <div>
+        <Head>
+        <title>Terms of Service - Vikas Sev Bhandar</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:title" content="Vikas Sev Bhandar" />
+  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:url" content="https://vsb.vercel.com/" />
+  <meta property="og:type" content="website" />
+      </Head>
         <section className="text-gray-600 body-font">
   <div className="text-black-600 mx-2 md:mx-10 my-2 py-24">
     <h2 className="px-10 py-2 text-gray-600 font-bold title-font tracking-wider text-4xl text-center mb-4">

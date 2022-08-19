@@ -118,6 +118,7 @@ export default {
               name: 'AvailableQty',
               type: 'number',
             },
+           
             {
               title: 'Weight In Grams',
               name: 'grams',

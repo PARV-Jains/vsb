@@ -62,6 +62,7 @@ function MyApp({ Component, pageProps }) {
         // value: sanityuserinfo.sanityusertoken,
         value: sanityuserinfo.token,
         email: sanityuserinfo.email,
+        isAdmin: sanityuserinfo.isAdmin,
       });
     }
     setKey(Math.random());

@@ -13,7 +13,8 @@ import { MdAccountCircle } from 'react-icons/md';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import {GiHamburgerMenu} from 'react-icons/gi';
-import {RiArrowDropDownLine} from 'react-icons/ri';
+import {RiArrowDropDownLine,RiNotificationBadgeLine} from 'react-icons/ri';
+import {IoMdNotifications} from 'react-icons/io';
 
 const Navbar = ({
   logout,
@@ -28,6 +29,7 @@ const Navbar = ({
   placeholder,
 }) => {
   const [dropdown, setDropdown] = useState(false);
+  // const [itemList, setItemList] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -41,6 +43,7 @@ const Navbar = ({
     }
   }, [cart,router.pathname]);
 
+  
 
 
   const toggleCart = () => {
@@ -65,6 +68,7 @@ const Navbar = ({
     router.push(`/search?query=${query}`);
   };
 
+ 
 
   return (
     <>
@@ -78,6 +82,7 @@ const Navbar = ({
           }}
           className="fixed right-9 hidden md:block top-4 z-30 cursor-pointer"
         >
+          
           {dropdown && (
             <div className="absolute right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
               <ul>
@@ -107,12 +112,15 @@ const Navbar = ({
           {/* {user.value && (
             <MdAccountCircle className=" hover:text-yellow-500 text-xl md:text-2xl mx-2 cursor-pointer" />
           )} */}
-          {sanityuser.value && (
-                    
+           
+          {sanityuser.value && (  
             <MdAccountCircle className=" hover:text-yellow-500 text-xl md:text-2xl mx-2 cursor-pointer" />
           )}
+         
+         
         </span>
       )}
+      
       
       <div
         className={`border-b border-yellow-500  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 z-10 bg-white ${
@@ -147,27 +155,56 @@ const Navbar = ({
 </div> */}
 
 {/* </div> */}
+{/* {itemList && (
+  
+           <li className="fixed  w-[20%] -ml-4 mt-10 z-10 " style={{opacity: "1", transform: "none", transition: "opacity 304ms cubic-bezier(0.4, 0, 0.2, 1) 0ms , transform 202ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"}}>
+            <div className="bg-gray-50 flex">
+              <ul className="pb-5 pt-6 2xl:pt-7 w-full">
+                <li className="text-body text-sm block py-1 5 px-5 xl:px-10 hover:bg-yellow-300">Ratlami</li>
+                <li className="text-body text-sm block py-1 5 px-5 xl:px-10 hover:bg-yellow-300">Ujjaini</li>
+                <li className="text-body text-sm block py-1 5 px-5 xl:px-10 hover:bg-yellow-300">Double Laung</li>
+                <li className="text-body text-sm block py-1 5 px-5 xl:px-10 hover:bg-yellow-300">Tikhi</li>
+              </ul>
+            </div>
+           </li>
+          )} */}
           <ul className="flex items-center space-x-6 font-bold  md:text-md">
             <Link href={'/namkeens'}>
-              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg" >
-                <li>Namkeen</li>
+              <a 
+          //     onMouseOver={() => {
+          //   setItemList(true);
+            
+          // }}
+          // onMouseLeave={() => {
+          //   setItemList(false);
+          // }}
+          >
+            <li 
+           className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Namkeen 
+           {/* <RiArrowDropDownLine className="text-3xl"/> */}
+           </li>
               </a>
-              
             </Link>
             <Link href={'/mix'}>
-              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
-                <li>Mix</li>
+            <a >
+                <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Mix 
+                {/* <RiArrowDropDownLine className="text-3xl"/> */}
+                </li>
               </a>
             </Link>
            
             <Link href={'/michchar'}>
-              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
-                <li>Michchar</li>
+            <a >
+                <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Michchar 
+                {/* <RiArrowDropDownLine className="text-3xl"/> */}
+                </li>
               </a>
             </Link>
             <Link href={'/chips'}>
-              <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
-                <li>Chips</li>
+            <a >
+                <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Chips
+                 {/* <RiArrowDropDownLine className="text-3xl"/> */}
+                </li>
               </a>
             </Link>
           </ul>
@@ -301,7 +338,14 @@ const Navbar = ({
           />
          
         </div>
-      
+       
+        {sanityuser.email == "admin@vsb.com" && ( 
+        
+          <>
+            <IoMdNotifications className=" hover:text-yellow-500  text-2xl md:text-3xl mx-2 cursor-pointer" />
+            </>
+          )
+        }
         <div
           ref={ref}
           className={`w-72  h-[100vh] z-10 sideCart overflow-y-scroll absolute top-0 bg-yellow-100 px-8 py-10 transition-all ${

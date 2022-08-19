@@ -1,8 +1,21 @@
+import Head from 'next/head'
 import React from 'react'
 
 const ReturnPolicy = () => {
   return (
     <div>
+        <Head>
+        <title>Return Policy- Vikas Sev Bhandar</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:title" content="Vikas Sev Bhandar" />
+  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
+  <meta property="og:url" content="https://vsb.vercel.com/" />
+  <meta property="og:type" content="website" />
+      </Head>
       <div className="min-h-screen">
   <section className="text-gray-600 body-font py-10">
     <div className="py-2 mx-auto">

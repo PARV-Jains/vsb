@@ -16,6 +16,7 @@
     "@headlessui/react": "^1.6.6",
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.8.3",
+    "@novu/notification-center": "^0.6.2",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
     "apexcharts": "^3.35.3",
@@ -39,7 +40,9 @@
     "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.3.1",
     "react-spinners": "^0.12.0",
-    "react-toastify": "^9.0.1"
+    "react-toastify": "^9.0.1",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
