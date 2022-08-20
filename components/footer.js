@@ -809,6 +809,13 @@ const Footer = ({
                       </a>
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/trackyourorder">
+                      <a className="text-gray-600 hover:text-gray-800">
+                       Track Your Order
+                      </a>
+                    </Link>
+                  </li>
                 </nav>
               </div>
               <div className="lg:w-1/4 md:w-1/2 w-full px-4">

@@ -51,7 +51,7 @@ const Home = ({ sanityproductss }) => {
   return (
     
     <div>
-       {/* <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""/> */}
+       <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""/>
        <Head>
         <title>Shri Vikas Sev Bhandar</title>
         <meta
