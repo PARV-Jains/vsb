@@ -31,6 +31,29 @@ function MyApp({ Component, pageProps }) {
           'web.onesignal.auto.215a98b6-2876-4938-a894-401760de5038',
         notifyButton: {
           enable: true,
+          size: 'medium', /* One of 'small', 'medium', or 'large' */
+    theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+    position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+    offset: {
+        bottom: '0px',
+        left: '0px', /* Only applied if bottom-left */
+        right: '0px' /* Only applied if bottom-right */
+    },
+    showCredit: false, /* Hide the OneSignal logo */
+    text: {
+        'tip.state.unsubscribed': 'Subscribe to notifications',
+        'tip.state.subscribed': "You're subscribed to notifications",
+        'tip.state.blocked': "You've blocked notifications",
+        'message.prenotify': 'Click to subscribe to notifications',
+        'message.action.subscribed': "Thanks for subscribing!",
+        'message.action.resubscribed': "You're subscribed to notifications",
+        'message.action.unsubscribed': "You won't receive notifications again",
+        'dialog.main.title': 'Manage Site Notifications',
+        'dialog.main.button.subscribe': 'SUBSCRIBE',
+        'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+        'dialog.blocked.title': 'Unblock Notifications',
+        'dialog.blocked.message': "Follow these instructions to allow notifications:"
+    }
         },
         allowLocalhostAsSecureOrigin: true,
       });
