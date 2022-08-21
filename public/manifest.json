@@ -1,32 +1,32 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
-    "name": "Vikas Sev Bhandar",
-    "short_name": "VSB",
-    "description": "Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen,michchar,nukti and snacks you always wanted . come shop now ",
-    "icons": [
-        {
-            "src": "/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "theme_color": "#f69435",
+  "background_color": "#f69435",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Vikas Sev Bhandar",
+  "short_name": "VSB",
+  "description": "Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen,michchar,nukti and snacks you always wanted . come shop now ",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
