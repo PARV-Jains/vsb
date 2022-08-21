@@ -408,7 +408,7 @@ const Slug = ({
                     <span className="title-font font-medium text-2xl text-gray-900">
                       ₹{sanityproductss.size.includes('500g') ? price : sanityvaritem[0].price}
                     </span> 
-                    <span className="ml-2 title-font font-medium text-gray-900">Hurry Up only {AvailableQty} itmes Left</span>
+                    {/* <span className="ml-2 title-font font-medium text-gray-900">Hurry Up only {AvailableQty} itmes Left</span> */}
                   </>
                 )}
                 {AvailableQty <= 0 && (

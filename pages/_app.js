@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
     theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
     position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
     offset: {
-        bottom: '0px',
+        bottom: '40px',
         left: '0px', /* Only applied if bottom-left */
         right: '0px' /* Only applied if bottom-right */
     },
