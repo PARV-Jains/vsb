@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         'tip.state.subscribed': "You're subscribed to notifications",
         'tip.state.blocked': "You've blocked notifications",
         'message.prenotify': 'Click to subscribe to notifications',
-        'message.action.subscribed': "Thanks for subscribing!",
+        'message.action.subscribed': "Thanks for subscribing!to Vikas Sev Bhandar",
         'message.action.resubscribed': "You're subscribed to notifications",
         'message.action.unsubscribed': "You won't receive notifications again",
         'dialog.main.title': 'Manage Site Notifications',
@@ -56,6 +56,12 @@ function MyApp({ Component, pageProps }) {
     }
         },
         allowLocalhostAsSecureOrigin: true,
+        webhooks: {
+          cors: false, // Defaults to false if omitted
+          'notification.displayed': 'https://vercel.com/2006parvjain-gmailcom/vsb', // e.g. https://site.com/hook
+          'notification.clicked': 'https://vercel.com/2006parvjain-gmailcom/vsb',
+          // ... follow the same format for any event in the list above
+        },
       });
     });
   }, []);
