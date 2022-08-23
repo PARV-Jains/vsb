@@ -77,43 +77,31 @@ const Slug = ({
         progress: undefined,
       });
       // <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></Script>
-      window.OneSignal = window.OneSignal || [];
-      OneSignal.push(function() {
-
-        OneSignal.init({
-          appId: "8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6",
+      const options = {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Basic Yjk3ZWFlNjEtZWYwZi00ODhjLWFlY2EtZDI4MmE1Yjk5Nzc1',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          app_id: '8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6',
+          included_segments: ['Subscribed Users'],
+          external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
+          contents: {en: 'English or Any Language Message', es: 'Spanish Message'},
+          name: 'Trial_CAMPAIGN_NAME',
+          // send_after: 'string',
+          // delayed_option: 'string',
+          // delivery_time_of_day: 'string',
+          // throttle_rate_per_minute: 0
+        })
+      };
       
-          // Your other init settings
-          allowLocalhostAsSecureOrigin: true,
-          notifyButton: {
-            enable: true,
-            size: 'medium', /* One of 'small', 'medium', or 'large' */
-      theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
-      position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
-      offset: {
-          bottom: '40px',
-          left: '0px', /* Only applied if bottom-left */
-          right: '0px' /* Only applied if bottom-right */
-      },
-      showCredit: false, /* Hide the OneSignal logo */
-      text: {
-          'tip.state.unsubscribed': 'Subscribe to notifications of vsb',
-          'tip.state.subscribed': "You're subscribed to notifications",
-          'tip.state.blocked': "You've blocked notifications",
-          'message.prenotify': 'Click to subscribe to notifications',
-          'message.action.subscribed': "Thanks for subscribing!to Vikas Sev Bhandar",
-          'message.action.resubscribed': "You're subscribed to notifications",
-          'message.action.unsubscribed': "You won't receive notifications again",
-          'dialog.main.title': 'Manage Site Notifications',
-          'dialog.main.button.subscribe': 'SUBSCRIBE',
-          'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
-          'dialog.blocked.title': 'Unblock Notifications',
-          'dialog.blocked.message': "Follow these instructions to allow notifications:"
-      }
-          },
-        });
-        console.log('hello from signal')
-      });
+      fetch('https://onesignal.com/api/v1/notifications', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+      
     }
    
   };
