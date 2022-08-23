@@ -76,7 +76,7 @@ const Slug = ({
         draggable: true,
         progress: undefined,
       });
-      <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></Script>
+      // <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></Script>
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
 
