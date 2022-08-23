@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import Product from '../models/Product';
-import connectDB from '../middleware/mongoose';
-import mongoose from 'mongoose';
+// import Product from '../models/Product';
+// import connectDB from '../middleware/mongoose';
+// import mongoose from 'mongoose';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import client from '../utils/client';
