@@ -1,8 +1,8 @@
 const https = require('https');
 const PaytmChecksum = require('paytmchecksum');
-import Order from '../../models/Order';
-import connectDB from '../../middleware/mongoose';
-import Product from '../../models/Product';
+// import Order from '../../models/Order';
+// import connectDB from '../../middleware/mongoose';
+// import Product from '../../models/Product';
 import pincodes from '../../pincodes.json';
 import client from '../../utils/client';
 

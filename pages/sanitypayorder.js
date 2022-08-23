@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Order from '../models/Order';
-import mongoose from 'mongoose';
+// import Order from '../models/Order';
+// import mongoose from 'mongoose';
 import Head from 'next/head';
 import client from '../utils/client';
 import { runFireworks } from '../utils/fireworks';

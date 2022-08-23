@@ -51,7 +51,6 @@ const Slug = ({
   // }, [router.query,error]);
 
   const checkServiceAbitlity = async () => {
-    console.log(sanityproductssvar,sanityvaritem)
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
     let pinJson = await pins.json();
     if (Object.keys(pinJson).includes(pin)) {
@@ -76,7 +75,13 @@ const Slug = ({
         draggable: true,
         progress: undefined,
       });
+      window.OneSignal = window.OneSignal || [];
+  console.log(OneSignal)
+      OneSignal.push(function() {
+        console.log('hello from signal')
+      });
     }
+   
   };
 
   const onChangePin = (e) => {
