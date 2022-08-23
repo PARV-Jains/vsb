@@ -4,6 +4,7 @@ import client from '../../../utils/client';
 import { urlFor, urlForThumbnail } from '../../../utils/image';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import Script from 'next/script';
 
 // import mongoose from 'mongoose';
 // import Product from '../../models/Product';
@@ -75,9 +76,42 @@ const Slug = ({
         draggable: true,
         progress: undefined,
       });
+      <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></Script>
       window.OneSignal = window.OneSignal || [];
-  console.log(OneSignal)
       OneSignal.push(function() {
+
+        OneSignal.init({
+          appId: "8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6",
+      
+          // Your other init settings
+          allowLocalhostAsSecureOrigin: true,
+          notifyButton: {
+            enable: true,
+            size: 'medium', /* One of 'small', 'medium', or 'large' */
+      theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+      position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+      offset: {
+          bottom: '40px',
+          left: '0px', /* Only applied if bottom-left */
+          right: '0px' /* Only applied if bottom-right */
+      },
+      showCredit: false, /* Hide the OneSignal logo */
+      text: {
+          'tip.state.unsubscribed': 'Subscribe to notifications of vsb',
+          'tip.state.subscribed': "You're subscribed to notifications",
+          'tip.state.blocked': "You've blocked notifications",
+          'message.prenotify': 'Click to subscribe to notifications',
+          'message.action.subscribed': "Thanks for subscribing!to Vikas Sev Bhandar",
+          'message.action.resubscribed': "You're subscribed to notifications",
+          'message.action.unsubscribed': "You won't receive notifications again",
+          'dialog.main.title': 'Manage Site Notifications',
+          'dialog.main.button.subscribe': 'SUBSCRIBE',
+          'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+          'dialog.blocked.title': 'Unblock Notifications',
+          'dialog.blocked.message': "Follow these instructions to allow notifications:"
+      }
+          },
+        });
         console.log('hello from signal')
       });
     }
@@ -135,6 +169,7 @@ const Slug = ({
   <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
   <meta property="og:url" content="https://vsb.vercel.com/" />
   <meta property="og:type" content="website" />
+  
       </Head>
         <div className="container  px-5 py-16 mx-auto">
           <div className="lg:w-4/5  mx-auto flex flex-wrap">
