@@ -88,16 +88,13 @@ const Slug = ({
           app_id: '8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6',
           included_segments: ['Subscribed Users'],
           // external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
-          contents: {en: 'New Order placed', es: 'Spanish Message'},
-          // headings:{"en": "New Order Has Been Placed", "es": "Spanish Title"},
-          name: 'Naya_Order_Aaya_hai',
+          contents: {en: 'English New Order Has been Placed', es: 'Spanish Message'},
+          name: 'Trial_CAMPAIGN_NAME',
           url:'https://vsb.sanity.studio',
-          // big_picture:'https://img.onesignal.com/tmp/53a40efa-9a8b-431f-a034-04525b8bed60.png',
-          // buttons:[{"id": "id1", "text": "first button", "icon": "ic_menu_share"}, {"id": "id2", "text": "second button", "icon": "ic_menu_send"}],
-          // web_buttons:[{"id": "like-button", "text": "Like", "icon": "http://i.imgur.com/N8SN8ZS.png", "url": "https://vsb.vercel.app"}, {"id": "read-more-button", "text": "Read more", "icon": "http://i.imgur.com/MIxJp1L.png", "url": "https://vsb.vercel.app"}]
+          big_picture:'https://img.onesignal.com/tmp/53a40efa-9a8b-431f-a034-04525b8bed60.png'
           // send_after: 'string',
-          // delayed_option: 'timezone',
-          // delivery_time_of_day: '19:30',
+          // delayed_option: 'string',
+          // delivery_time_of_day: 'string',
           // throttle_rate_per_minute: 0
         })
       };
