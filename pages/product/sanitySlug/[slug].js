@@ -87,7 +87,7 @@ const Slug = ({
         body: JSON.stringify({
           app_id: '8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6',
           included_segments: ['Subscribed Users'],
-          external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
+          // external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
           contents: {en: 'English or Any Language Message', es: 'Spanish Message'},
           name: 'Trial_CAMPAIGN_NAME',
           // send_after: 'string',
