@@ -101,7 +101,7 @@ const Slug = ({
           // throttle_rate_per_minute: 0
         })
       };
-      return
+      return;
       fetch('https://onesignal.com/api/v1/notifications', options)
         .then(response => response.json())
         .then(response => console.log(response))
