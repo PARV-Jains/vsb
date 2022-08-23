@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
     },
     showCredit: false, /* Hide the OneSignal logo */
     text: {
-        'tip.state.unsubscribed': 'Subscribe to notifications',
+        'tip.state.unsubscribed': 'Subscribe to notifications of vsb',
         'tip.state.subscribed': "You're subscribed to notifications",
         'tip.state.blocked': "You've blocked notifications",
         'message.prenotify': 'Click to subscribe to notifications',
