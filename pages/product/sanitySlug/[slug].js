@@ -90,6 +90,8 @@ const Slug = ({
           // external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
           contents: {en: 'English or Any Language Message', es: 'Spanish Message'},
           name: 'Trial_CAMPAIGN_NAME',
+          url:'https://onesignal.com',
+          big_picture:'https://img.onesignal.com/tmp/53a40efa-9a8b-431f-a034-04525b8bed60.png'
           // send_after: 'string',
           // delayed_option: 'string',
           // delivery_time_of_day: 'string',
