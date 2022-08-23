@@ -307,6 +307,36 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
         .catch(function onError(error) {
           console.log('error => ', error);
         });
+
+        const options = {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            Authorization: 'Basic Yjk3ZWFlNjEtZWYwZi00ODhjLWFlY2EtZDI4MmE1Yjk5Nzc1',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            app_id: '8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6',
+            include_player_ids: ["06dbb999-bc41-486b-a952-caa00f41ed97"],
+            // external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
+            contents: {en: 'Naya Order Aaya Hai English', es: 'Spanish Message'},
+            headings:{"en": "Kisi Ne Order Place Kiya Hai English", "es": "Spanish Title"},
+            name: 'NEW_ORDER',
+            url:'https://vsb.sanity.studio',
+            big_picture:'https://img.onesignal.com/tmp/53a40efa-9a8b-431f-a034-04525b8bed60.png'
+            // send_after: 'string',
+            // delayed_option: 'string',
+            // delivery_time_of_day: 'string',
+            // throttle_rate_per_minute: 0
+          })
+        };
+        
+        fetch('https://onesignal.com/api/v1/notifications', options)
+          .then(response => response.json())
+          .then(response => console.log(response))
+          .catch(err => console.error(err));
+        
+
     } else {
       console.log(txnRes.error);
       if (txnRes.cartClear) {
@@ -367,6 +397,34 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     );
     if (cashRes.success) {
       router.push(`/sanitypayorder?clearCart=1&_id=${sanityorderid}`);
+      const options = {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Basic Yjk3ZWFlNjEtZWYwZi00ODhjLWFlY2EtZDI4MmE1Yjk5Nzc1',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          app_id: '8c33f5fc-1004-4f36-9b24-0b17d3cbc7c6',
+          include_player_ids: ["06dbb999-bc41-486b-a952-caa00f41ed97"],
+          // external_id: '514c1b62-cb15-4f13-a9dd-fb141d7fe215',
+          contents: {en: 'Naya Order Aaya Hai English', es: 'Spanish Message'},
+          headings:{"en": "Kisi Ne Order Place Kiya Hai English", "es": "Spanish Title"},
+          name: 'NEW_ORDER',
+          url:'https://vsb.sanity.studio',
+          big_picture:'https://img.onesignal.com/tmp/53a40efa-9a8b-431f-a034-04525b8bed60.png'
+          // send_after: 'string',
+          // delayed_option: 'string',
+          // delivery_time_of_day: 'string',
+          // throttle_rate_per_minute: 0
+        })
+      };
+      
+      fetch('https://onesignal.com/api/v1/notifications', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+      
     } else {
       console.log(cashRes.error);
       if (cashRes.cartClear) {
