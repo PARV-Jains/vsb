@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 // import Order from '../models/Order';
@@ -36,7 +37,7 @@ const MyOrder = ({ sanityorder, clearCart }) => {
     }
 
     // runFireworks();
-  }, [clearCart, sanityorder.createdAt, router.query.clearCart]);
+  }, []);
   // const ProductUpdates = async () => {
   // const generateInvoice = e => {
   //   e.preventDefault();
