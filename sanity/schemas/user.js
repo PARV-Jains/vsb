@@ -3,7 +3,7 @@ import { FaUserCheck } from 'react-icons/fa';
 
 export default {
  name:'sanityuser',
- title:'Sanityuser',
+ title:'Users',
  icon: FaUserCheck,
  type: 'document',
  fields: [{

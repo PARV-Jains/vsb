@@ -6,7 +6,7 @@ import {
 
 export default {
   name: 'sanityproduct',
-  title: 'Sanityproduct',
+  title: 'Products',
   icon: MdFoodBank,
   type: 'document',
   orderings: [orderRankOrdering],

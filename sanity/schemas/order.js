@@ -14,10 +14,9 @@ import client from '../../utils/client';
 
 export default {
   name: 'sanityorder',
-  title: 'Sanityorder',
+  title: 'Orders',
   icon: () => '🥗',
   type: 'document',
- 
   fields: [
     {
       title: 'User',
@@ -176,4 +175,10 @@ export default {
       type: 'datetime',
     },
   ],
+  preview: {
+    select: {
+      title: 'sanityname',
+      subtitle: 'subTotal'
+    }
+  }
 };

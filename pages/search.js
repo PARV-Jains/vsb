@@ -9,9 +9,9 @@ import Head from 'next/head';
 import Navbar from '../components/navbar';
 import SearchResult from '../components/ProductItem';
 import ProductItem from '../components/ProductItem';
-import {GiCancel} from 'react-icons/gi'
+import { GiCancel } from 'react-icons/gi';
 
-export default function Search({sanityproductss}) {
+export default function Search({ sanityproductss }) {
   const router = useRouter();
 
   const { query = 'all' } = router.query;
@@ -20,35 +20,44 @@ export default function Search({sanityproductss}) {
     error: '',
     loading: true,
   });
-  const { loading,newsanityproductss, error } = state;
-
-  
+  const { loading, newsanityproductss, error } = state;
 
   useEffect(() => {
     const fetchSanityData = async () => {
       try {
-     
-        // let sanityQuery = '*[_type == "sanityproduct"]';
+        // 1st method(showing only the searched result )
+        // let sanityQuery = '*[_type == "sanityproduct"';
+        // sanityQuery += `&& name match "*${query}*" `;
+        // sanityQuery += `]`;
+
+        // 2nd method (showing all results but the searcjed term is prioritised)
+        // let sanityQuery = '*[_type == "sanityproduct"';
+        // sanityQuery += `]`;
+        // if (query !== 'all') {
+        //   // sanityQuery += `| score(name match "*${query}*") `;
+        //   sanityQuery += ` | score(name match "*${query}*") | order(_score desc)`;
+        // }
+
         // let sanityQuery = '*[_type == "sanityproduct"';
         // if (query !== 'all') {
         //   // sanityQuery += `| score(name match "*${query}*") `;
         //   sanityQuery += ` && name match "${query}" `;
         // }
         // //  sanityQuery += `| order(_score desc)`;
-        // //  sanityQuery += `{name,image}`;
         // sanityQuery += `]`;
         let sanityQuery = '*[_type == "sanityproduct"';
-        sanityQuery += `]`;
+        // sanityQuery += `&& name match "*${query}*" `;
         if (query !== 'all') {
           // sanityQuery += `| score(name match "*${query}*") `;
-          sanityQuery += ` | score(name match "*${query}*") | order(_score desc)`;
+          // sanityQuery += ` | score(name match "*${query}*") | order(_score desc)`;
+          sanityQuery += `&& description match "*${query}*"`;
         }
-       
+        sanityQuery += `]`;
+
         setState({ loading: true });
         const newsanityproductss = await client.fetch(sanityQuery);
-   
+
         setState({ newsanityproductss, loading: false });
-       
       } catch (err) {
         setState({ error: err.message, loading: false });
       }
@@ -68,20 +77,26 @@ export default function Search({sanityproductss}) {
 
   return (
     <div>
-        <Head>
+      <Head>
         <title>Search {query}- Vikas Sev Bhandar</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
-        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:title" content="Vikas Sev Bhandar" />
-  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:url" content="https://vsb.vercel.com/" />
-  <meta property="og:type" content="website" />
+        <meta
+          name="description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:title" content="Vikas Sev Bhandar" />
+        <meta
+          property="og:description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:url" content="https://vsb.vercel.com/" />
+        <meta property="og:type" content="website" />
       </Head>
       <div>
-        <div  container spacing={2}>
+        <div container spacing={2}>
           <div item md={9}>
             <div container justifycontent="space-between" alignitems="center">
               <div item>
@@ -91,28 +106,30 @@ export default function Search({sanityproductss}) {
                 Results
                 {query !== 'all' && query !== '' && ' : ' + query}
                 {(query !== 'all' && query !== '') || 'hello from error' ? (
-                 <button onClick={() => router.push(`/search`)}>{<GiCancel className="ml-4 mt-3 text-md"/>}</button>
+                  <button onClick={() => router.push(`/search`)}>
+                    {<GiCancel className="ml-4 mt-3 text-md" />}
+                  </button>
                 ) : null}
               </div>
             </div>
             {/* <div  container spacing={3}>
               <div container spacing={3}> */}
-                {error ?(
-                console.log(error)
-                ): (
-                  <div className="flex flex-wrap justify-center gap-5 ">
-                {newsanityproductss?.map((newsanityitem) => (    
-                    <ProductItem  key={newsanityitem.name} newsanityitem={newsanityitem} />
+            {error ? (
+              console.log(error)
+            ) : (
+              <div className="flex flex-wrap justify-center gap-5 ">
+                {newsanityproductss?.map((newsanityitem) => (
+                  <ProductItem
+                    key={newsanityitem.name}
+                    newsanityitem={newsanityitem}
+                  />
                 ))}
-                
-                </div>
-                )}
-              {/* </div>
+              </div>
+            )}
+            {/* </div>
             </div> */}
           </div>
         </div>
-
-       
       </div>
     </div>
   );

@@ -9,3 +9,8 @@
   --brand-secondary: #ffa800;
   --brand-secondary--inverted: #3c1609;
 }
+
+.myLogo {
+  height: 100%;
+  max-height: 3rem;
+}

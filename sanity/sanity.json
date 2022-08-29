@@ -38,6 +38,10 @@
     {
       "implements": "part:@sanity/base/theme/variables/override-style",
       "path": "./styles/variable.css"
+    },
+    {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./components/myLogo.js"
     }
   ]
 }

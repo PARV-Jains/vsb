@@ -1,5 +1,5 @@
 export default {
-    title: 'Sanity Order Item',
+    title: 'Order Items',
     name: 'sanityorderitem',
     type: 'object',
     fields: [
