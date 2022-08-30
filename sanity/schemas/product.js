@@ -101,6 +101,14 @@ export default {
       name: 'category',
       title: 'Category',
       type: 'string',
+      options:{
+        list:[
+{ title:'Michchar', value:'michchar'},
+{ title:'Namkeen', value:'namkeen'},
+{ title:'Mix', value:'mix'},
+{ title:'Chips', value:'chips'},
+        ],
+      },
     },
     {
       name: 'AvailableQty',
