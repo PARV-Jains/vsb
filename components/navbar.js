@@ -333,13 +333,17 @@ const Navbar = ({
               </a>
             </Link>
           )}
-
+<span onClick={toggleCart} className="relative inline-block cursor-pointer">
           <AiOutlineShoppingCart
             onClick={toggleCart}
             className="text-xl hidden md:block md:text-2xl"
             
           />
-         
+         {Object.keys(cart).map((k) =>{
+          return( 
+            <span key={k} className="absolute hidden md:block top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">{cart[k].qty}</span>
+)})}
+         </span>
         </div>
        
         {sanityuser.email == "admin@vsb.com" && ( 
