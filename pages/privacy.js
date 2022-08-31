@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
           </li>
           <li>
             <p>
-              <strong>Country</strong> refers to: Uttar Pradesh, India
+              <strong>Country</strong> refers to: Madhya Pradesh, India
             </p>
           </li>
           <li>

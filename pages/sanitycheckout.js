@@ -696,7 +696,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
 
       <form onSubmit={paymentmethodHandler}>
         <div
-          className="mt-8 w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700"
+          className="mt-8 w-full mx-auto rounded-lg bg-white shadow-lg  text-gray-700"
           style={{ maxWidth: '600px' }}
         >
           <div className="w-full pt-1 pb-5">
@@ -836,6 +836,15 @@ Cash On Delivery
 
 )}  */}
       </form>
+{/* <div className="flex row justify-between lg:items-center flex-col lg:flex-row">
+  <div className="coupon mx-4 my-4 lg:mx-60">
+    <h3 className="coupon mx-4 my-4 lg:mx-96 text-center">Apply Promo Code</h3>
+    <div className="pin lg:mx-96 my-2 flex space-x-2 text-sm">
+      <input type="text" className="px-2 border-2 border-gray-400 rounded-md" placeholder="Enter Code (Only Prepaid)" value={coupon}/>
+      <button className="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded disabled:bg-yellow-200">Apply</button>
+    </div>
+  </div>
+</div> */}
     </div>
   );
 };

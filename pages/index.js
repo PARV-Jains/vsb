@@ -590,7 +590,7 @@ export const getServerSideProps = async () => {
   const sanityquery = '*[_type == "product"]';
   const sanityproducts = await client.fetch(sanityquery);
 
-  const productquery = '*[_type == "sanityproduct"][0..3] ';
+  const productquery = '*[_type == "sanityproduct"] | order(_createdAt desc)[0..3] ';
   const sanityproductss = await client.fetch(productquery);
 
   return {

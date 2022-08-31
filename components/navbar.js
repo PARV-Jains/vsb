@@ -80,7 +80,7 @@ const Navbar = ({
           onMouseLeave={() => {
             setDropdown(false);
           }}
-          className="fixed right-9 hidden md:block top-4 z-30 cursor-pointer"
+          className="fixed  right-9 hidden md:block top-4 z-30 cursor-pointer"
         >
           
           {dropdown && (
@@ -123,7 +123,7 @@ const Navbar = ({
       
       
       <div
-        className={`border-b border-yellow-500  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 z-10 bg-white ${
+        className={`sticky w-full border-b border-yellow-500  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md  top-0 z-10 bg-white ${
           !sidebar && `overflow-hidden`
         }`}
       >
@@ -211,8 +211,9 @@ const Navbar = ({
      
 
         </div>
-
+        
         {/* <div className="mr-10 flex md:hidden">
+
         <button
 								onClick={() => setIsOpen(!isOpen)}
 								type="button"
@@ -297,7 +298,9 @@ const Navbar = ({
 							</div>
 						</div>
 					)}
-				</Transition> */}
+				</Transition> */
+        }
+
 
 
  <form onSubmit={submitHandler}> 
@@ -318,13 +321,13 @@ const Navbar = ({
             </div>
         </div>
         </form>
-        <div className="cursor-pointer items-center cart absolute right-0 top-4 mx-5 flex ">
+        <div className="cursor-pointer items-center cart absolute right-0 top-5 mx-5 flex ">
        
           {!sanityuser.value && (
           
             <Link href={'/login'}>
               <a>
-                <button className="bg-yellow-600 hidden md:block rounded-md px-2 py-1 text-white mx-2 text-sm">
+                <button className="bg-yellow-500 hidden md:block rounded-md px-2 py-1 pb-1.5 text-white mx-3 text-sm">
                   Login
                 </button>
               </a>
