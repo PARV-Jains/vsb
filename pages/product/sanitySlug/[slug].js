@@ -368,7 +368,7 @@ const Slug = ({
                         className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
   transition duration-150 ease-in-out origin-top min-w-32"
                       >
-                        {(
+                        {size[1] && (
                           <option
                             onClick={(e) => {
                               refreshVariant(e.target.value);
