@@ -13,14 +13,14 @@ const ProductItem = ({
           <a className="block relative  rounded overflow-hidden">
             <img
               alt="ecommerce"
-          loading='lazy'
+              loading='lazy'
               className="m-auto  h-[30vh]  md:h-[36vh] block"
               src={urlForThumbnail(image && image[0])}
             />
           </a>
           <div className="mt-4 text-center md:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-             {category}
+              {category}
             </h3>
             <h2 className="text-gray-900 title-font text-lg font-medium">
               {name}
@@ -43,11 +43,11 @@ const ProductItem = ({
                 )}
               </div>
             )}
-         
+            
           </div>
         </div>
       </Link>
-     
+
     </div>
   );
 };

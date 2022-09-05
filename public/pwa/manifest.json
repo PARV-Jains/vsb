@@ -4,6 +4,15 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "shortcuts": [
+    {
+      "name": "Track Your Order",
+      "short_name": "Track Order",
+      "description": "Track Your Order Live",
+      "url": "/trackyourorder?utm_source=homescreen",
+      "icons": [{ "src": "/order_icon.png", "sizes": "192x192" }]
+    }
+  ],
   "name": "Vikas Sev Bhandar",
   "short_name": "VSB",
   "description": "Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen,michchar,nukti and snacks you always wanted . come shop now ",

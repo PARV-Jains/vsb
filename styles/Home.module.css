@@ -231,13 +231,16 @@
  
 /* From uiverse.io by @mrhyddenn */
 .loader {
-  width: 6em;
-  height: 6em;
+  width: 9em;
+  height: 9em;
   font-size: 10px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
 
 .loader .face {

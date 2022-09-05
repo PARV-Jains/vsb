@@ -696,7 +696,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
 
       <form onSubmit={paymentmethodHandler}>
         <div
-          className="mt-8 w-full mx-auto rounded-lg bg-white shadow-lg  text-gray-700"
+          className="mt-8 w-full mx-auto rounded-lg bg-white shadow-lg shadow-yellow-200  text-gray-700"
           style={{ maxWidth: '600px' }}
         >
           <div className="w-full pt-1 pb-5">

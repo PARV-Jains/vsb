@@ -88,13 +88,18 @@ const Trackyourorder = () => {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
-        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:title" content="Vikas Sev Bhandar" />
-  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:url" content="https://vsb.vercel.com/" />
-  <meta property="og:type" content="website" />
+        <meta
+          name="description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:title" content="Vikas Sev Bhandar" />
+        <meta
+          property="og:description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:url" content="https://vsb.vercel.com/" />
+        <meta property="og:type" content="website" />
       </Head>
-    
 
       <div className="min-h-screen flex items-start justify-center pt-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
@@ -164,20 +169,40 @@ const Trackyourorder = () => {
                     ) : (
                       !trackingdata[0].sanitydeliverystatus && (
                         <span className="animate-pulse">
-                          {trackingdata[0].codStatus ? "Payment On Delivery" : "Payment Done"}
+                          {trackingdata[0].codStatus
+                            ? 'Payment On Delivery'
+                            : 'Payment Done'}
                         </span>
                       )
                     )}
-                    <span>{trackingdata[0].sanitydeliverystatus ? trackingdata[0].sanitydeliverystatus[0] :''}</span>
-                    <div className={styles.checkedIcon}>
-                      <Image
-                        className={styles.checkedIcon}
-                        src="/checked.png"
-                        width={20}
-                        height={20}
-                        alt=""
-                      />
-                    </div>
+                    <span className="font-bold mb-2 mt-2">
+                      {trackingdata[0].sanitydeliverystatus
+                        ? trackingdata[0].sanitydeliverystatus[0]
+                        : ''}
+                    </span>
+                    {trackingdata[0].sanitydeliverystatus && trackingdata[0].sanitydeliverystatus[0] ? (
+
+<div className={styles.checkedIcon}>
+  <Image
+    className={styles.checkedIcon}
+    src="/checked.png"
+    width={20}
+    height={20}
+    alt=""
+  />
+</div> 
+
+) :  
+<div className={styles.checkedIcon}>
+<Image
+  className={styles.checkedIcon, "animate-pulse"}
+  src="/waiting.png"
+  width={30}
+  height={30}
+  alt=""
+/>
+</div> 
+}
                   </div>
                 )}
                 {trackingdata[0] && (
@@ -191,16 +216,34 @@ const Trackyourorder = () => {
                         </span>
                       )
                     )}
-                    <span>{trackingdata[0].sanitydeliverystatus ? trackingdata[0].sanitydeliverystatus[1] : ''}</span>
-                    <div className={styles.checkedIcon}>
-                      <Image
-                        className={styles.checkedIcon}
-                        src="/checked.png"
-                        width={20}
-                        height={20}
-                        alt=""
-                      />
-                    </div>
+                    <span className="font-bold mb-2 mt-2">
+                      {trackingdata[0].sanitydeliverystatus
+                        ? trackingdata[0].sanitydeliverystatus[1]
+                        : ''}
+                    </span>
+                    {trackingdata[0].sanitydeliverystatus && trackingdata[0].sanitydeliverystatus[1] ? (
+
+<div className={styles.checkedIcon}>
+  <Image
+    className={styles.checkedIcon}
+    src="/checked.png"
+    width={20}
+    height={20}
+    alt=""
+  />
+</div> 
+
+) :  
+<div className={styles.checkedIcon}>
+<Image
+  className={styles.checkedIcon, "animate-pulse"}
+  src="/waiting.png"
+  width={30}
+  height={30}
+  alt=""
+/>
+</div> 
+}
                   </div>
                 )}
                 {trackingdata[0] && (
@@ -214,16 +257,34 @@ const Trackyourorder = () => {
                         </span>
                       )
                     )}
-                    <span>{trackingdata[0].sanitydeliverystatus ? trackingdata[0].sanitydeliverystatus[2] : ''}</span>
-                    <div className={styles.checkedIcon}>
-                      <Image
-                        className={styles.checkedIcon}
-                        src="/checked.png"
-                        width={20}
-                        height={20}
-                        alt=""
-                      />
-                    </div>
+                    <span className="font-bold mb-2 mt-2">
+                      {trackingdata[0].sanitydeliverystatus
+                        ? trackingdata[0].sanitydeliverystatus[2]
+                        : ''}
+                    </span>
+                    {trackingdata[0].sanitydeliverystatus && trackingdata[0].sanitydeliverystatus[2] ? (
+
+<div className={styles.checkedIcon}>
+  <Image
+    className={styles.checkedIcon}
+    src="/checked.png"
+    width={20}
+    height={20}
+    alt=""
+  />
+</div> 
+
+) :  
+<div className={styles.checkedIcon}>
+<Image
+  className={styles.checkedIcon, "animate-pulse"}
+  src="/waiting.png"
+  width={30}
+  height={30}
+  alt=""
+/>
+</div> 
+}
                   </div>
                 )}
                 {trackingdata[0] && (
@@ -235,7 +296,6 @@ const Trackyourorder = () => {
                         height={30}
                         alt=""
                       />
-                      
                     ) : (
                       !trackingdata[0].sanitydeliverystatus && (
                         <span className="animate-pulse">
@@ -243,7 +303,13 @@ const Trackyourorder = () => {
                         </span>
                       )
                     )}
-                    <span>{trackingdata[0].sanitydeliverystatus ? trackingdata[0].sanitydeliverystatus[3] : ''}</span>
+                    <span className="font-bold mb-2 mt-2">
+                      {trackingdata[0].sanitydeliverystatus
+                        ? trackingdata[0].sanitydeliverystatus[3]
+                        : ''}
+                    </span>
+                    {trackingdata[0].sanitydeliverystatus && trackingdata[0].sanitydeliverystatus[3] ? (
+
                     <div className={styles.checkedIcon}>
                       <Image
                         className={styles.checkedIcon}
@@ -252,7 +318,19 @@ const Trackyourorder = () => {
                         height={20}
                         alt=""
                       />
-                    </div>
+                    </div> 
+                  
+                    ) :  
+                    <div className={styles.checkedIcon}>
+                    <Image
+                      className={styles.checkedIcon, "animate-pulse"}
+                      src="/waiting.png"
+                      width={30}
+                      height={30}
+                      alt=""
+                    />
+                  </div> 
+                  } 
                   </div>
                 )}
                 <button
@@ -310,3 +388,4 @@ const Trackyourorder = () => {
 };
 
 export default Trackyourorder;
+

@@ -8,13 +8,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import jsCookie from 'js-cookie';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+import Router from 'next/router';
+import Loading from "../components/Loader"
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const router = useRouter();
   const [key, setKey] = useState();
+  const [loading, setLoading] = useState(false)
   const [footerkey, seFootertKey] = useState();
   const [user, setUser] = useState({ value: null });
   const [sanityuser, setSanityuser] = useState({ value: null });
@@ -226,14 +228,23 @@ function MyApp({ Component, pageProps }) {
     router.push('/');
   };
 
+  Router.events.on('routeChangeStart',(url) => {
+    // console.log('route change')
+    setLoading(true)
+  })
+  Router.events.on('routeChangeComplete',(url) => {
+    // console.log('route change is completed')
+    setLoading(false)
+  })
   return (
     <>
+     {/* {loading && <Loading/>} */}
       <NextNProgress
         options={{ easing: 'ease', speed: 500, showSpinner: false }}
         color="#f2d00d"
         startPosition={0.3}
         stopDelayMs={200}
-        height={4}
+        height={5}
         showOnShallow={true}
       />
       <ThemeProvider theme={theme}>
@@ -252,7 +263,7 @@ function MyApp({ Component, pageProps }) {
           clearCart={clearCart}
           subTotal={subTotal}
         />
-      )}
+      )}  
       <Component
         buyNow={buyNow}
         cart={cart}

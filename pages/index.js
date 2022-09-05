@@ -537,16 +537,16 @@ const Home = ({ sanityproductss }) => {
         </div>
       </section> */}
 
-      <section className="ml-28 mb-12 mt-24 text-gray-600 body-font">
-        <div className="container px-5  mx-auto">
-          <div className="flex flex-wrap -m-4">
-            <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4">
+      <section className=" text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap justify-center -m-4">
+            <div className="w-full  xl:w-1/3 md:w-1/2 p-4">
+              <div className="border border-gray-200 p-6 rounded-lg text-center">
+                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 text-center">
                   <img src="./namkeen.webp" alt="namkeen" />
                   {/* <FaTshirt/> */}
                 </div>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
+                <h2 className="text-lg text-gray-900 font-medium title-font mb-2 text-center">
                   Tasty Fresh Namkeen
                 </h2>
                 <p className="leading-relaxed text-base">
@@ -554,12 +554,12 @@ const Home = ({ sanityproductss }) => {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4">
+            <div className="w-full  xl:w-1/3 md:w-1/2 p-4">
+              <div className="border border-gray-200 p-6 rounded-lg text-center">
+                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 text-center">
                   <MdOutlineDeliveryDining></MdOutlineDeliveryDining>
                 </div>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
+                <h2 className="text-lg text-gray-900 font-medium title-font mb-2 text-center">
                   Super fast delivery
                 </h2>
                 <p className="leading-relaxed text-base">
@@ -567,12 +567,12 @@ const Home = ({ sanityproductss }) => {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4">
+            <div className="w-full  xl:w-1/3 md:w-1/2 p-4">
+              <div className="border border-gray-200 p-6 rounded-lg text-center">
+                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 text-center">
                   <AiFillDollarCircle></AiFillDollarCircle>
                 </div>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
+                <h2 className="text-lg text-gray-900 font-medium title-font mb-2 text-center">
                   Exciting offers
                 </h2>
                 <p className="leading-relaxed text-base">
