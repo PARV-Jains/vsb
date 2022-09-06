@@ -9,7 +9,7 @@
       "name": "Track Your Order",
       "short_name": "Track Order",
       "description": "Track Your Order Live",
-      "url": "/trackyourorder?utm_source=homescreen",
+      "url": "/trackyourorder",
       "icons": [{ "src": "/order_icon.png", "sizes": "512x512" }]
     }
   ],
