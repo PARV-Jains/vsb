@@ -10,7 +10,7 @@
       "short_name": "Track Order",
       "description": "Track Your Order Live",
       "url": "/trackyourorder?utm_source=homescreen",
-      "icons": [{ "src": "/order_icon.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/order_icon.png", "sizes": "512x512" }]
     }
   ],
   "name": "Vikas Sev Bhandar",
