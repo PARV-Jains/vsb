@@ -108,7 +108,7 @@ export default {
               type: 'string',
             },
             {
-              title: 'Product Id',
+              title: 'Sanity Product Id',
               name: 'id',
               type: 'string',
             },
@@ -117,10 +117,14 @@ export default {
               name: 'AvailableQty',
               type: 'number',
             },
-           
             {
               title: 'Weight In Grams',
               name: 'grams',
+              type: 'string',
+            },
+            {
+              title: 'Slug',
+              name: 'slug',
               type: 'string',
             },
           ],

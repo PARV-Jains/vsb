@@ -8,10 +8,7 @@ import client from '../../utils/client';
 
 const handler = nc();
 
-
 handler.post(async (req, res) => {
-  
-
   const projectId = config.projectId;
   const dataset = config.dataset;
   const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
@@ -25,7 +22,6 @@ handler.post(async (req, res) => {
         address: req.body.address,
         pincode: req.body.pincode,
         phone: req.body.phone,
-      
       },
     },
   ];
@@ -40,8 +36,8 @@ handler.post(async (req, res) => {
     return res.status(401).send({ error: 'Email aleardy exists' });
   }
 
-
-  const { data } = await axios.post(`https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}?returnIds=true`,
+  const { data } = await axios.post(
+    `https://${projectId}.apicdn.sanity.io/v2022-05-30/data/mutate/${dataset}?returnIds=true`,
     { mutations: createMutations },
     {
       headers: {
@@ -55,12 +51,12 @@ handler.post(async (req, res) => {
     _id: sanityuserId,
     name: req.body.sanityname,
     email: req.body.sanityemail,
-    address:req.body.address,
+    address: req.body.address,
     pincode: req.body.pincode,
     phone: req.body.phone,
   };
   const sanityusertoken = signToken(sanityuser);
-  res.send({ ...sanityuser, sanityusertoken,success:true });
+  res.send({ ...sanityuser, sanityusertoken, success: true });
 });
 
 export default handler;

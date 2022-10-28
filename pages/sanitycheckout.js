@@ -393,7 +393,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
 
     let cashRes = await cashpayment.json();
     let sanityorderid = await client.fetch(
-      `*[_type == "sanityorder"] | order(_createdAt desc) [0] ._id`
+      `*[_type == "sanityorder"] | order(_createdAt asc) [0] ._id`
     );
     if (cashRes.success) {
       router.push(`/sanitypayorder?clearCart=1&_id=${sanityorderid}`);

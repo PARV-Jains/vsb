@@ -91,7 +91,6 @@ handler.post(async (req, res) => {
       error:
         'price of some items in your cart have changed . please try again subtotal error',
       cartClear: true,
-      
     });
 
     return;
@@ -123,7 +122,7 @@ handler.post(async (req, res) => {
   const dataset = config.dataset;
   const tokenWithWriteAccess = process.env.SANITY_API_WRITE_TOKEN;
   const { data } = await axios.post(
-    `https://${projectId}.api.sanity.io/v2022-05-30/data/mutate/${dataset}?returnIds=true`,
+    `https://${projectId}.apicdn.sanity.io/v2022-05-30/data/mutate/${dataset}?returnIds=true`,
     {
       mutations: [
         {

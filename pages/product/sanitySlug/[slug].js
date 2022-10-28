@@ -433,7 +433,8 @@ const Slug = ({
                           size[0],
                           id,
                           AvailableQty,
-                          grams
+                          grams,
+                          slug.current
                         )
                       }
                       className="flex ml-8 text-white bg-yellow-500 disabled:bg-yellow-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-yellow-600 rounded"
@@ -451,7 +452,8 @@ const Slug = ({
                           size[0],
                           id,
                           AvailableQty,
-                          grams
+                          grams,
+                        slug.current
                         )
                       }
                       className="flex ml-4 text-white bg-yellow-500 disabled:bg-yellow-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-yellow-600 rounded"

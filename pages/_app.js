@@ -118,7 +118,8 @@ function MyApp({ Component, pageProps }) {
     size,
     id,
     AvailableQty,
-    grams
+    grams,
+    slug,
   ) => {
     if (Object.keys(cart).length == 0) {
       setKey(Math.random());
@@ -135,6 +136,7 @@ function MyApp({ Component, pageProps }) {
         id,
         AvailableQty,
         grams,
+        slug,
       };
     }
     setCart(newCart);
@@ -171,10 +173,11 @@ function MyApp({ Component, pageProps }) {
     size,
     id,
     AvailableQty,
-    grams
+    grams,
+    slug,
   ) => {
     let newCart = {};
-    newCart[itemCode] = { qty: 1, price, name, size, id, AvailableQty, grams };
+    newCart[itemCode] = { qty: 1, price, name, size, id, AvailableQty, grams, slug, };
     setCart(newCart);
     saveCart(newCart);
     router.push('/sanitycheckout');
@@ -188,7 +191,8 @@ function MyApp({ Component, pageProps }) {
     size,
     id,
     AvailableQty,
-    grams
+    grams,
+    slug,
   ) => {
     let newCart = JSON.parse(JSON.stringify(cart));
     if (itemCode in cart) {

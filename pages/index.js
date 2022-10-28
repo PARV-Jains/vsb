@@ -109,7 +109,7 @@ const Home = ({ sanityproductss }) => {
 </div>
 <div className="row flex flex-row w-full lg:w-[800px]">
   <div className="row21 w-[50vw] lg:w-[400px] bg-purple-300 border">
-    <Link href="/namkeens">
+    <Link href="/mix">
       <a >
         <Image
         width="600px"
@@ -141,7 +141,7 @@ const Home = ({ sanityproductss }) => {
 <div className="bigCol flex flex-col lg:flex-row ">
 <div className="row flex flex-row w-full lg:w-[800px]">
   <div className="row21 w-[50vw] lg:w-[400px] bg-purple-300 border">
-    <Link href="/namkeens">
+    <Link href="/michchar">
       <a >
         <Image
         width="600px"

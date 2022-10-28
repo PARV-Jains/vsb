@@ -402,7 +402,7 @@ const Slug = ({
                 )}
                 <button
                   disabled={AvailableQty <= 0}
-                  onClick={() => buyNow(slug.current, 1, price, name, size[0],id, AvailableQty,grams)}
+                  onClick={() => buyNow(slug.current, 1, price, name, size[0],id, AvailableQty,grams, slug.current)}
                   className="flex ml-8 text-white bg-yellow-500 disabled:bg-yellow-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-yellow-600 rounded"
                 >
                   Buy Now
@@ -410,7 +410,7 @@ const Slug = ({
                 <button
                   disabled={AvailableQty <= 0}
                   onClick={() =>
-                    addToCart(slug.current, 1, price, name, size[0],id, AvailableQty,grams)
+                    addToCart(slug.current, 1, price, name, size[0],id, AvailableQty,grams, slug.current)
                   }
                   className="flex ml-4 text-white bg-yellow-500 disabled:bg-yellow-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-yellow-600 rounded"
                 >

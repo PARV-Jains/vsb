@@ -123,7 +123,7 @@ const Navbar = ({
       
       
       <div
-        className={`sticky w-full border-b border-yellow-500  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md  top-0 z-10 bg-white ${
+        className={`sticky w-full border-b border-gray-200  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-sm  top-0 z-10 bg-white ${
           !sidebar && `overflow-hidden`
         }`}
       >
