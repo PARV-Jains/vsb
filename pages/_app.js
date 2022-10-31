@@ -9,20 +9,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import jsCookie from 'js-cookie';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Router from 'next/router';
-import Loading from "../components/Loader"
+import Loading from '../components/Loader';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
+  const [sidebar, setSidebar] = useState(false);
   const [subTotal, setSubTotal] = useState(0);
   const router = useRouter();
   const [key, setKey] = useState();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [footerkey, seFootertKey] = useState();
   const [user, setUser] = useState({ value: null });
   const [sanityuser, setSanityuser] = useState({ value: null });
-  const theme = createTheme({
-    
-  })
+  const theme = createTheme({});
 
   useEffect(() => {
     window.OneSignal = window.OneSignal || [];
@@ -33,41 +32,46 @@ function MyApp({ Component, pageProps }) {
           'web.onesignal.auto.215a98b6-2876-4938-a894-401760de5038',
         notifyButton: {
           enable: true,
-          size: 'medium', /* One of 'small', 'medium', or 'large' */
-    theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
-    position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
-    offset: {
-        bottom: '40px',
-        left: '0px', /* Only applied if bottom-left */
-        right: '0px' /* Only applied if bottom-right */
-    },
-    showCredit: false, /* Hide the OneSignal logo */
-    text: {
-        'tip.state.unsubscribed': 'Subscribe to notifications of vsb',
-        'tip.state.subscribed': "You're subscribed to notifications",
-        'tip.state.blocked': "You've blocked notifications",
-        'message.prenotify': 'Click to subscribe to notifications',
-        'message.action.subscribed': "Thanks for subscribing!to Vikas Sev Bhandar",
-        'message.action.resubscribed': "You're subscribed to notifications",
-        'message.action.unsubscribed': "You won't receive notifications again",
-        'dialog.main.title': 'Manage Site Notifications',
-        'dialog.main.button.subscribe': 'SUBSCRIBE',
-        'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
-        'dialog.blocked.title': 'Unblock Notifications',
-        'dialog.blocked.message': "Follow these instructions to allow notifications:"
-    }
+          size: 'medium' /* One of 'small', 'medium', or 'large' */,
+          theme:
+            'default' /* One of 'default' (red-white) or 'inverse" (white-red) */,
+          position: 'bottom-right' /* Either 'bottom-left' or 'bottom-right' */,
+          offset: {
+            bottom: '40px',
+            left: '0px' /* Only applied if bottom-left */,
+            right: '0px' /* Only applied if bottom-right */,
+          },
+          showCredit: false /* Hide the OneSignal logo */,
+          text: {
+            'tip.state.unsubscribed': 'Subscribe to notifications of vsb',
+            'tip.state.subscribed': "You're subscribed to notifications",
+            'tip.state.blocked': "You've blocked notifications",
+            'message.prenotify': 'Click to subscribe to notifications',
+            'message.action.subscribed':
+              'Thanks for subscribing!to Vikas Sev Bhandar',
+            'message.action.resubscribed': "You're subscribed to notifications",
+            'message.action.unsubscribed':
+              "You won't receive notifications again",
+            'dialog.main.title': 'Manage Site Notifications',
+            'dialog.main.button.subscribe': 'SUBSCRIBE',
+            'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+            'dialog.blocked.title': 'Unblock Notifications',
+            'dialog.blocked.message':
+              'Follow these instructions to allow notifications:',
+          },
         },
         allowLocalhostAsSecureOrigin: true,
         webhooks: {
           cors: false, // Defaults to false if omitted
-          'notification.displayed': 'https://vercel.com/2006parvjain-gmailcom/vsb', // e.g. https://site.com/hook
-          'notification.clicked': 'https://vercel.com/2006parvjain-gmailcom/vsb',
+          'notification.displayed':
+            'https://vercel.com/2006parvjain-gmailcom/vsb', // e.g. https://site.com/hook
+          'notification.clicked':
+            'https://vercel.com/2006parvjain-gmailcom/vsb',
           // ... follow the same format for any event in the list above
         },
       });
     });
   }, []);
-
 
   useEffect(() => {
     try {
@@ -119,10 +123,11 @@ function MyApp({ Component, pageProps }) {
     id,
     AvailableQty,
     grams,
-    slug,
+    slug
   ) => {
     if (Object.keys(cart).length == 0) {
       setKey(Math.random());
+      setSidebar(true)
     }
     let newCart = cart;
     if (itemCode in cart) {
@@ -174,10 +179,19 @@ function MyApp({ Component, pageProps }) {
     id,
     AvailableQty,
     grams,
-    slug,
+    slug
   ) => {
     let newCart = {};
-    newCart[itemCode] = { qty: 1, price, name, size, id, AvailableQty, grams, slug, };
+    newCart[itemCode] = {
+      qty: 1,
+      price,
+      name,
+      size,
+      id,
+      AvailableQty,
+      grams,
+      slug,
+    };
     setCart(newCart);
     saveCart(newCart);
     router.push('/sanitycheckout');
@@ -192,7 +206,7 @@ function MyApp({ Component, pageProps }) {
     id,
     AvailableQty,
     grams,
-    slug,
+    slug
   ) => {
     let newCart = JSON.parse(JSON.stringify(cart));
     if (itemCode in cart) {
@@ -232,17 +246,17 @@ function MyApp({ Component, pageProps }) {
     router.push('/');
   };
 
-  Router.events.on('routeChangeStart',(url) => {
+  Router.events.on('routeChangeStart', (url) => {
     // console.log('route change')
-    setLoading(true)
-  })
-  Router.events.on('routeChangeComplete',(url) => {
+    setLoading(true);
+  });
+  Router.events.on('routeChangeComplete', (url) => {
     // console.log('route change is completed')
-    setLoading(false)
-  })
+    setLoading(false);
+  });
   return (
     <>
-     {/* {loading && <Loading/>} */}
+      {/* {loading && <Loading/>} */}
       <NextNProgress
         options={{ easing: 'ease', speed: 500, showSpinner: false }}
         color="#f2d00d"
@@ -252,13 +266,23 @@ function MyApp({ Component, pageProps }) {
         showOnShallow={true}
       />
       <ThemeProvider theme={theme}>
-      {key && (
-        <Navbar
-          logout={logout}
-          sanitylogout={sanitylogout}
-          user={user}
-          sanityuser={sanityuser}
-          key={key}
+        {key && (
+          <Navbar
+            logout={logout}
+            sanitylogout={sanitylogout}
+            user={user}
+            sanityuser={sanityuser}
+            key={key}
+            buyNow={buyNow}
+            cart={cart}
+            addToCart={addToCart}
+            // addSanityToCart={addSanityToCart}
+            removeFromCart={removeFromCart}
+            clearCart={clearCart}
+            subTotal={subTotal}
+          />
+        )}
+        <Component
           buyNow={buyNow}
           cart={cart}
           addToCart={addToCart}
@@ -266,19 +290,9 @@ function MyApp({ Component, pageProps }) {
           removeFromCart={removeFromCart}
           clearCart={clearCart}
           subTotal={subTotal}
+          {...pageProps}
         />
-      )}  
-      <Component
-        buyNow={buyNow}
-        cart={cart}
-        addToCart={addToCart}
-        // addSanityToCart={addSanityToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-        {...pageProps}
-      />
-      
+
         <Footer
           logout={logout}
           sanitylogout={sanitylogout}
@@ -293,7 +307,7 @@ function MyApp({ Component, pageProps }) {
           clearCart={clearCart}
           subTotal={subTotal}
         />
-    </ThemeProvider>
+      </ThemeProvider>
     </>
   );
 }

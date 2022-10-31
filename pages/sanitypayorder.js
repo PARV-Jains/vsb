@@ -444,7 +444,7 @@ export async function getServerSideProps(context) {
   // let order = await Order.findById(context.query.id);
   //  let sanityorder = await client.fetch(`*[_type == "sanityorder" && oid == oid]| order(_createdAt desc) [0] .oid`);
   let sanityorder = await client.fetch(
-    `*[_type == "sanityorder" && _id == $id][0]`,
+    `*[_type == "sanityorder" && _id == $id] | order(_createdAt desc) [0]`,
     {
       id: context.query._id,
     }
