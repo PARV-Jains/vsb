@@ -396,7 +396,8 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
       `*[_type == "sanityorder"] | order(_createdAt desc) [0] ._id`
     );
     if (cashRes.success) {
-      router.push(`/sanitypayorder?clearCart=1&_id=${sanityorderid}`);
+      // router.push(`/sanitypayorder?clearCart=1&_id=${sanityorderid}`);
+      router.push(`/waiting`);
       const options = {
         method: 'POST',
         headers: {

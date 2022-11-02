@@ -121,8 +121,8 @@ module.exports = {
         alignItems: 'center',
         animation: 'inProgress 1s ease infinite alternate',
       },
+  
 
-     
 
       right: {
         flex: '1',
@@ -142,7 +142,7 @@ module.exports = {
       totalTextTitle: {
         marginRight: '10px',
       },
-      
+    
 
       button: {
         backgroundColor: 'white',
