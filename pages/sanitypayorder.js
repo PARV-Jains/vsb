@@ -156,7 +156,65 @@ const MyOrder = ({ sanityorder, clearCart }) => {
                   </span>
                 </p>
 
-                <div className="flex mb-4">
+                {Object.keys(sanityproductss).map((key) => {
+                  return(
+                  <table  key={key} className="min-w-full">
+                    <thead className="bg-white border-b">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-2 md:px-6 py-4 text-left"
+                        >
+                          Item
+                        </th>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-2 md:px-6 py-4 text-left"
+                        >
+                          Quantity
+                        </th>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-2 md:px-6 py-4 text-left"
+                        >
+                          Amount
+                        </th>
+                        {/* <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-2 md:px-6 py-4 text-left"
+                        >
+                          Link
+                        </th> */}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-2 md:px-6 py-4  text-sm font-medium text-gray-900 whitespace-pre-wrap">
+                          {sanityproductss[key].name}(
+                          {sanityproductss[key].grams})
+                        </td>
+                        <td className="px-2 md:px-6 py-4  text-sm font-medium text-gray-900 whitespace-pre-wrap">
+                          {sanityproductss[key].qty}
+                        </td>
+                        <td className="px-2 md:px-6 py-4  text-sm font-medium text-gray-900 whitespace-pre-wrap">
+                          ₹{sanityproductss[key].price} X{' '}
+                          {sanityproductss[key].qty} = ₹
+                          {sanityproductss[key].price *
+                            sanityproductss[key].qty}
+                        </td>
+                        {/* <td className="px-2 md:px-6 py-4  text-sm font-medium text-gray-900 whitespace-pre-wrap">
+                          <Link href={`/product/sanitySlug/${sanityproductss[key].slug}`}>
+                            <button className="bg-yellow-500 px-2 py-1 pb-1.5 rounded-md text-sm text-white cursor-pointer">
+                              Link
+                            </button>
+                          </Link>
+                        </td> */}
+                      </tr>
+                    </tbody>
+                  </table>
+                  )
+                })}
+                {/* <div className="flex mb-4">
                   <a className="flex-grow py-2 text-lg px-1">Description</a>
                   <a className="flex-grow text-center border-gray-300 py-2 text-lg px-1">
                     Quantity
@@ -164,10 +222,10 @@ const MyOrder = ({ sanityorder, clearCart }) => {
                   <a className="flex-grow text-center border-gray-300 py-2 text-lg px-1">
                     Item Total
                   </a>
-                </div>
+                </div> */}
                 {/* <button onClick={ProductUpdates}>p</button> */}
 
-                {Object.keys(sanityproductss).map((key) => {
+                {/* {Object.keys(sanityproductss).map((key) => {
                   return (
                     <div
                       key={key}
@@ -187,7 +245,7 @@ const MyOrder = ({ sanityorder, clearCart }) => {
                       </span>
                     </div>
                   );
-                })}
+                })} */}
 
                 <div className="flex flex-col my-8">
                   <span className="title-font font-medium text-2xl text-gray-900">
@@ -284,12 +342,12 @@ const MyOrder = ({ sanityorder, clearCart }) => {
                         >
                           Amount
                         </th>
-                        <th
+                        {/* <th
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-2 md:px-6 py-4 text-left"
                         >
                           Link
-                        </th>
+                        </th> */}
                       </tr>
                     </thead>
                     <tbody>
@@ -307,13 +365,13 @@ const MyOrder = ({ sanityorder, clearCart }) => {
                           {sanityproductss[key].price *
                             sanityproductss[key].qty}
                         </td>
-                        <td className="px-2 md:px-6 py-4  text-sm font-medium text-gray-900 whitespace-pre-wrap">
+                        {/* <td className="px-2 md:px-6 py-4  text-sm font-medium text-gray-900 whitespace-pre-wrap">
                           <Link href={`/product/sanitySlug/${sanityproductss[key].slug}`}>
                             <button className="bg-yellow-500 px-2 py-1 pb-1.5 rounded-md text-sm text-white cursor-pointer">
                               Link
                             </button>
                           </Link>
-                        </td>
+                        </td> */}
                       </tr>
                     </tbody>
                   </table>

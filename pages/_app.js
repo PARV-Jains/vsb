@@ -127,7 +127,6 @@ function MyApp({ Component, pageProps }) {
   ) => {
     if (Object.keys(cart).length == 0) {
       setKey(Math.random());
-      setSidebar(true)
     }
     let newCart = cart;
     if (itemCode in cart) {
@@ -146,7 +145,7 @@ function MyApp({ Component, pageProps }) {
     }
     setCart(newCart);
     saveCart(newCart);
-    toast.success(`${cart[itemCode].qty} ${name}(${grams}) added to cart `, {
+    toast.success(`${cart[itemCode].qty} ${name} (${grams}) added to cart `, {
       position: 'bottom-center',
       autoClose: 1000,
       hideProgressBar: false,

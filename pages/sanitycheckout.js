@@ -656,6 +656,8 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
                           cart[k].price,
                           cart[k].name,
                           cart[k].size,
+                          cart[k].id,
+                          cart[k].AvailableQty,
                           cart[k].grams
                         );
                       }}
