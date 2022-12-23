@@ -310,11 +310,11 @@ const Signup = () => {
               </div>
             </div>
 
-            <ReCAPTCHA 
+            {/* <ReCAPTCHA 
 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
 size="normal"
 ref={reRef}
-/>
+/> */}
 
             <div>
               <button

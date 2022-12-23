@@ -63,7 +63,11 @@ const Home = ({ sanityproductss }) => {
   <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
   <meta property="og:url" content="https://vsb.vercel.com/" />
   <meta property="og:type" content="website" />
-
+  <meta property="og:image" content="https://vsb.vercel.app/_next/image?url=%2Fheader.png&w=1920&q=75" />
+  <meta name="twitter:title" content="Vikas Sev Bhandar"/>
+<meta name="twitter:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now ."/>
+<meta name="twitter:image" content=" https://vsb.vercel.app/_next/image?url=%2Fheader.png&w=1920&q=75"/>
+<meta name="twitter:card" content="Vikas Sev Bhandar" />
 
       </Head>
      

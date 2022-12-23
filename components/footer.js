@@ -732,8 +732,8 @@ const Footer = ({
             </div>
             <div className="flex-grow flex flex-wrap lg:pl-20 -mb-10 lgd:mt-0 mt-10 lg:text-left text-center">
               <div className="lg:w-1/4  w-full px-4">
-                <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                  Shop
+                <h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3 -mt-10">
+                  SHOP
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
@@ -763,8 +763,8 @@ const Footer = ({
                 </nav>
               </div>
               <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                  Policy
+                <h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3 -mt-10">
+                  POLICY
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
@@ -784,7 +784,7 @@ const Footer = ({
                 </nav>
               </div>
               <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+                <h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3 -mt-10">
                   CUSTOMER SERVICE
                 </h2>
                 <nav className="list-none mb-10">
