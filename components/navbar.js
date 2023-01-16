@@ -87,18 +87,18 @@ const Navbar = ({
             <div className="absolute right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
               <ul>
                 <Link href={'/myprofile'}>
-                  <a>
+                   
                     <li className="py-1 hover:text-yellow-700 text-sm font-bold">
                       My account
                     </li>
-                  </a>
+                   
                 </Link>
                 <Link href={'/sanitymyorders'}>
-                  <a>
+                   
                     <li className="py-1 hover:text-yellow-700 text-sm font-bold">
                       My Orders
                     </li>
-                  </a>
+                   
                 </Link>
                 <li
                   onClick={logout}
@@ -129,9 +129,9 @@ const Navbar = ({
       >
         <div className="logo ">
           <Link href='/'>
-            <a>
+             
               <Image alt="" src="/main-logo.png" width="256" height="48" />
-            </a>
+             
           </Link>
         </div>
         <div className="nav hidden md:block">
@@ -140,16 +140,16 @@ const Navbar = ({
         {/* <div id="dropdown" className="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
     <ul className="py-1" aria-labelledby="dropdownButton">
       <li>
-        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard 
       </li>
       <li>
-        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings 
       </li>
       <li>
-        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings 
       </li>
       <li>
-        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+        <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out 
       </li>
     </ul>
 </div> */}
@@ -170,7 +170,7 @@ const Navbar = ({
           )} */}
           <ul className="flex items-center space-x-6 font-bold  md:text-md">
             <Link href={'/namkeens'}>
-              <a 
+              {/* <a 
           //     onMouseOver={() => {
           //   setItemList(true);
             
@@ -178,34 +178,34 @@ const Navbar = ({
           // onMouseLeave={() => {
           //   setItemList(false);
           // }}
-          >
+          > */}
             <li 
            className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Namkeen 
            {/* <RiArrowDropDownLine className="text-3xl"/> */}
            </li>
-              </a>
+               
             </Link>
             <Link href={'/mix'}>
-            <a >
+            
                 <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Mix 
                 {/* <RiArrowDropDownLine className="text-3xl"/> */}
                 </li>
-              </a>
+               
             </Link>
            
             <Link href={'/michchar'}>
-            <a >
+         
                 <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Michchar 
                 {/* <RiArrowDropDownLine className="text-3xl"/> */}
                 </li>
-              </a>
+               
             </Link>
             <Link href={'/chips'}>
-            <a >
+            
                 <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Chips
                  {/* <RiArrowDropDownLine className="text-3xl"/> */}
                 </li>
-              </a>
+               
             </Link>
           </ul>
      
@@ -275,24 +275,24 @@ const Navbar = ({
             <Link href={'/namkeens'}>
               <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg" >
                 <li>Namkeen</li>
-              </a>
+               
               
             </Link>
             <Link href={'/mix'}>
               <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                 <li>Mix</li>
-              </a>
+               
             </Link>
            
             <Link href={'/michchar'}>
               <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                 <li>Michchar</li>
-              </a>
+               
             </Link>
             <Link href={'/chips'}>
               <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                 <li>Chips</li>
-              </a>
+               
             </Link>
           </ul>
 							</div>
@@ -326,11 +326,11 @@ const Navbar = ({
           {!sanityuser.value && (
           
             <Link href={'/login'}>
-              <a>
+               
                 <button className="bg-yellow-500 hidden md:block rounded-md px-2 py-1 pb-1.5 text-white mx-3 text-sm">
                   Login
                 </button>
-              </a>
+               
             </Link>
           )}
 <span onClick={toggleCart} className="relative inline-block cursor-pointer">

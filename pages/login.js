@@ -175,7 +175,7 @@ const Login = () => {
                 >
                   {' '}
                   Signup{' '}
-                </a>
+                 
               </Link>
             </p>
           </div>
@@ -228,7 +228,7 @@ const Login = () => {
                   >
                     {' '}
                     Forgot your password?{' '}
-                  </a>
+                   
                 </Link>
               </div>
             </div>
@@ -307,7 +307,7 @@ const Login = () => {
                   >
                     {' '}
                     Forgot your password?{' '}
-                  </a>
+                   
                 </Link>
               </div>
             </div> */}

@@ -124,7 +124,7 @@ const PrivacyPolicy = () => {
                 target="_blank"
               >
                 https://www.vsb.com
-              </a>
+               
             </p>
           </li>
           <li>
@@ -236,7 +236,7 @@ const PrivacyPolicy = () => {
               target="_blank"
             >
               https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
-            </a>
+             
           </li>
           <li>
             <strong>Web Beacons.</strong> Certain sections of our Service and
@@ -259,7 +259,7 @@ const PrivacyPolicy = () => {
             rel="noreferrer"
           >
             Use of Cookies by Free Privacy Policy
-          </a>
+           
           .
         </p>
         <p>
@@ -572,7 +572,7 @@ const PrivacyPolicy = () => {
               target="_blank"
             >
               https://ww.vsb.com/contact
-            </a>
+             
           </li>
         </ul>
       </div>

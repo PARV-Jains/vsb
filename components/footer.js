@@ -237,7 +237,7 @@ const Footer = ({
   //         <div className="w-64 flex-shrink-0 lg:mx-0 mx-auto text-center lg:text-left">
   // <Link href={'/'}><a className="flex title-font font-medium items-center lg:justify-start justify-center text-gray-900">
   //             <Image src="/main-logo.png" width="256px" height="48px"></Image>
-  //           </a>
+  //            
   //           </Link>
   //           <p className="mt-2 text-sm text-gray-500 px-4">
   //             Taste the incredible
@@ -251,27 +251,27 @@ const Footer = ({
   //             </h2>
   //             <nav className="list-none mb-10">
   //               <li>
-  //               <Link href={`/namkeens`}><a className="text-gray-600 hover:text-gray-800">
+  //               <Link href={`/namkeens`}>  
   //                 Namkeen
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //               <li>
-  //               <Link href={`/michchar`}><a className="text-gray-600 hover:text-gray-800">
+  //               <Link href={`/michchar`}>  
   //                   Michchar
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //               <li>
-  //               <Link href={`/chips`}><a className="text-gray-600 hover:text-gray-800">
+  //               <Link href={`/chips`}>  
   //                  Chips
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //               <li>
-  //               <Link href={`/mix`}><a className="text-gray-600 hover:text-gray-800">
+  //               <Link href={`/mix`}>  
   //                   Mix
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //             </nav>
@@ -283,16 +283,16 @@ const Footer = ({
   //             <nav className="list-none mb-10">
   //               <li>
   //                 <Link href={`/privacy`}>
-  //                 <a className="text-gray-600 hover:text-gray-800">
+  //                   
   //                  Privacy Policy
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //               <li>
   // <Link href="/terms">
-  //                 <a className="text-gray-600 hover:text-gray-800">
+  //                   
   //                  Terms and Conditions
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //             </nav>
@@ -304,26 +304,26 @@ const Footer = ({
   //             <nav className="list-none mb-10">
   //               <li>
   //                                   <Link href="/contact">
-  //                 <a className="text-gray-600 hover:text-gray-800">
+  //                   
   //                   Contact Us
-  //                 </a>
+  //                  
   //                 </Link>
 
   //               </li>
   //               <li>
   //               <Link href="/about">
 
-  //                 <a className="text-gray-600 hover:text-gray-800">
+  //                   
   //                   About us
-  //                 </a>
+  //                  
   //                 </Link>
 
   //               </li>
   //               <li>
   //                 <Link href="/returnpolicy">
-  //                 <a className="text-gray-600 hover:text-gray-800">
+  //                   
   //                  Return Policy
-  //                 </a>
+  //                  
   //                 </Link>
   //               </li>
   //             </nav>
@@ -352,7 +352,7 @@ const Footer = ({
   //               >
   //                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
   //               </svg>
-  //             </a>
+  //              
   //             <a className="ml-3 text-gray-500">
   //               <svg
   //                 fill="currentColor"
@@ -364,7 +364,7 @@ const Footer = ({
   //               >
   //                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
   //               </svg>
-  //             </a>
+  //              
   //             <a className="ml-3 text-gray-500">
   //               <svg
   //                 fill="none"
@@ -378,7 +378,7 @@ const Footer = ({
   //                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
   //                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
   //               </svg>
-  //             </a>
+  //              
   //             <a className="ml-3 text-gray-500">
   //               <svg
   //                 fill="currentColor"
@@ -395,7 +395,7 @@ const Footer = ({
   //                 ></path>
   //                 <circle cx="4" cy="4" r="2" stroke="none"></circle>
   //               </svg>
-  //             </a>
+  //              
   //           </span>
   //         </div>
   //       </div>
@@ -469,24 +469,24 @@ const Footer = ({
   //           <Link href={'/namkeens'}>
   //             <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg" >
   //               <li>Namkeen</li>
-  //             </a>
+  //              
 
   //           </Link>
   //           <Link href={'/mix'}>
   //             <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
   //               <li>Mix</li>
-  //             </a>
+  //              
   //           </Link>
 
   //           <Link href={'/michchar'}>
   //             <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
   //               <li>Michchar</li>
-  //             </a>
+  //              
   //           </Link>
   //           <Link href={'/chips'}>
   //             <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
   //               <li>Chips</li>
-  //             </a>
+  //              
   //           </Link>
   //         </ul>
   //             </div>
@@ -495,13 +495,13 @@ const Footer = ({
   //       </Transition>
   //   </li>
   //   <Link href='/' >
-  //     <a>
+  //      
   //   <li>
   //   <svg  stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 1024 1024" className="text-2xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" >
   //     <path d="M946.5 505L534.6 93.4a31.93 31.93 0 0 0-45.2 0L77.5 505c-12 12-18.8 28.3-18.8 45.3 0 35.3 28.7 64 64 64h43.4V908c0 17.7 14.3 32 32 32H448V716h112v224h265.9c17.7 0 32-14.3 32-32V614.3h43.4c17 0 33.3-6.7 45.3-18.8 24.9-25 24.9-65.5-.1-90.5z"></path>
   //   </svg>
   //   </li>
-  //   </a>
+  //    
   //   </Link>
 
   //   <li >
@@ -509,11 +509,11 @@ const Footer = ({
   //   </li>
   // {!sanityuser.value && (
   //   <Link href='/login'>
-  //     <a>
+  //      
   //   <li>
   // <MdAccountCircle className="text-2xl"/>
   //   </li>
-  //   </a>
+  //    
   //   </Link>
   // )}
   // {sanityuser.value && (
@@ -531,18 +531,18 @@ const Footer = ({
   //           <div className=" right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
   //             <ul>
   //               <Link href={'/myprofile'}>
-  //                 <a>
+  //                  
   //                   <li className="py-1 hover:text-yellow-700 text-sm font-bold">
   //                     My account
   //                   </li>
-  //                 </a>
+  //                  
   //               </Link>
   //               <Link href={'/sanitymyorders'}>
-  //                 <a>
+  //                  
   //                   <li className="py-1 hover:text-yellow-700 text-sm font-bold">
   //                     My Orders
   //                   </li>
-  //                 </a>
+  //                  
   //               </Link>
   //               <li
   //                 onClick={logout}
@@ -671,8 +671,8 @@ const Footer = ({
 </div>
 <span className="text-sm text-gray-500">Featured</span>
 <ul onClick={() => setIsOpen(!isOpen)} className="flex flex-col space-y-5 font-bold  md:text-md">
-                        <Link href={'/namkeens'}>
-                          <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                        <Link href={'/namkeens'} className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                         
                             <li>
                               {/* <Image
                               src="/all_in_one_200g.webp"
@@ -682,23 +682,22 @@ const Footer = ({
                               </Image> */}
                               Namkeen
                               </li>
-                          </a>
+                           
                         </Link>
-                        <Link href={'/mix'}>
-                          <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                        <Link href={'/mix'} className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                         
                             <li>Mix</li>
-                          </a>
+                           
                         </Link>
 
-                        <Link href={'/michchar'}>
-                          <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                        <Link href={'/michchar'} className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                         
                             <li>Michchar</li>
-                          </a>
+                           
                         </Link>
-                        <Link href={'/chips'}>
-                          <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
+                        <Link href={'/chips'} className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                             <li>Chips</li>
-                          </a>
+                           
                         </Link>
                       </ul>
                 </div>
@@ -714,14 +713,13 @@ const Footer = ({
         <footer className="text-gray-600 body-font bg-slate-100 shadow-lg ">
           <div className="container px-5 py-10 mx-auto flex  lg:items-start lg:flex-row lg:flex-nowrap flex-wrap flex-col">
             <div className="w-64 flex-shrink-0 lg:mx-0 mx-auto text-center lg:text-left">
-              <Link href={'/'}>
-                <a className="flex title-font font-medium items-center lg:justify-start justify-center text-gray-900">
+              <Link href={'/'} className="flex title-font font-medium items-center lg:justify-start justify-center text-gray-900">
                   <Image
                     src="/main-logo.png"
-                    width="256px"
-                    height="48px"
+                    width="256"
+                    height="48"
                   ></Image>
-                </a>
+                 
               </Link>
               <p className="mt-2 text-sm text-gray-500 px-4">
                 Taste the incredible
@@ -737,27 +735,27 @@ const Footer = ({
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <Link href={`/namkeens`}>
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href={`/namkeens`} className="text-gray-600 hover:text-gray-800">
+                        
                         Namkeen
-                      </a>
+                       
                     </Link>
                   </li>
                   <li>
-                    <Link href={`/michchar`}>
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href={`/michchar`} className="text-gray-600 hover:text-gray-800">
+                        
                         Michchar
-                      </a>
+                       
                     </Link>
                   </li>
                   <li>
-                    <Link href={`/chips`}>
-                      <a className="text-gray-600 hover:text-gray-800">Chips</a>
+                    <Link href={`/chips`} className="text-gray-600 hover:text-gray-800">
+                        Chips 
                     </Link>
                   </li>
                   <li>
-                    <Link href={`/mix`}>
-                      <a className="text-gray-600 hover:text-gray-800">Mix</a>
+                    <Link href={`/mix`} className="text-gray-600 hover:text-gray-800">
+                        Mix 
                     </Link>
                   </li>
                 </nav>
@@ -768,17 +766,17 @@ const Footer = ({
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <Link href={`/privacy`}>
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href={`/privacy`} className="text-gray-600 hover:text-gray-800">
+                        
                         Privacy Policy
-                      </a>
+                       
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms">
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href="/terms" className="text-gray-600 hover:text-gray-800">
+                        
                         Terms and Conditions
-                      </a>
+                       
                     </Link>
                   </li>
                 </nav>
@@ -789,43 +787,45 @@ const Footer = ({
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <Link href="/contact">
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href="/contact" className="text-gray-600 hover:text-gray-800">
+                        
                         Contact Us
-                      </a>
+                       
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about">
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href="/about" className="text-gray-600 hover:text-gray-800">
+                        
                         About us
-                      </a>
+                       
                     </Link>
                   </li>
                   <li>
-                    <Link href="/returnpolicy">
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href="/returnpolicy" className="text-gray-600 hover:text-gray-800" >
+                        
                         Return Policy
-                      </a>
+                       
                     </Link>
                   </li>
                   <li>
-                    <Link href="/trackyourorder">
-                      <a className="text-gray-600 hover:text-gray-800">
+                    <Link href="/trackyourorder" className="text-gray-600 hover:text-gray-800">
+                        
                        Track Your Order
-                      </a>
+                       
                     </Link>
                   </li>
                 </nav>
               </div>
-              <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <div className="lg:w-1/4 md:w-1/2 flex items-center justify-center w-full px-4">
+                <nav className="list-none mb-10 w-60">
                 <Image
                   alt="pay"
                   src="/pay.png"
                   width="800"
-                  height="337"
-                  className="lg:w-1/4 flex items-center justify-center md:w-1/2 w-full px-4"
+                  height="800"
+                  // className="lg:w-1/4 flex items-center justify-center w-full px-4"
                 ></Image>
+                </nav>
               </div>
             </div>
           </div>
@@ -847,7 +847,7 @@ const Footer = ({
                   >
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                   </svg>
-                </a>
+                 
                 <a className="ml-3 text-gray-500">
                   <svg
                     fill="currentColor"
@@ -859,7 +859,7 @@ const Footer = ({
                   >
                     <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                   </svg>
-                </a>
+                 
                 <a className="ml-3 text-gray-500">
                   <svg
                     fill="none"
@@ -880,7 +880,7 @@ const Footer = ({
                     ></rect>
                     <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                   </svg>
-                </a>
+                 
                 <a className="ml-3 text-gray-500">
                   <svg
                     fill="currentColor"
@@ -897,7 +897,7 @@ const Footer = ({
                     ></path>
                     <circle cx="4" cy="4" r="2" stroke="none"></circle>
                   </svg>
-                </a>
+                 
               </span> */}
             </div>
           </div>
@@ -973,23 +973,23 @@ const Footer = ({
                         <Link href={'/namkeens'}>
                           <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                             <li>Namkeen</li>
-                          </a>
+                           
                         </Link>
                         <Link href={'/mix'}>
                           <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                             <li>Mix</li>
-                          </a>
+                           
                         </Link>
 
                         <Link href={'/michchar'}>
                           <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                             <li>Michchar</li>
-                          </a>
+                           
                         </Link>
                         <Link href={'/chips'}>
                           <a className="mr-1 hover:bg-yellow-400  rounded-md px-3 py-2 text-lg">
                             <li>Chips</li>
-                          </a>
+                           
                         </Link>
                       </ul>
                     </div>
@@ -998,7 +998,7 @@ const Footer = ({
               </Transition> */}
             </li>
             <Link href="/">
-              <a>
+             
                 <li>
                   <svg
                     stroke="currentColor"
@@ -1013,7 +1013,7 @@ const Footer = ({
                     <path d="M946.5 505L534.6 93.4a31.93 31.93 0 0 0-45.2 0L77.5 505c-12 12-18.8 28.3-18.8 45.3 0 35.3 28.7 64 64 64h43.4V908c0 17.7 14.3 32 32 32H448V716h112v224h265.9c17.7 0 32-14.3 32-32V614.3h43.4c17 0 33.3-6.7 45.3-18.8 24.9-25 24.9-65.5-.1-90.5z"></path>
                   </svg>
                 </li>
-              </a>
+              
             </Link>
 
             <li>
@@ -1030,11 +1030,11 @@ const Footer = ({
             </li>
             {!sanityuser.value && (
               <Link href="/login">
-                <a>
+                 
                   <li>
                     <MdAccountCircle className="text-2xl" />
                   </li>
-                </a>
+               
               </Link>
             )}
             {sanityuser.value && (
@@ -1052,18 +1052,18 @@ const Footer = ({
                     <div className=" right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
                       <ul>
                         <Link href={'/myprofile'}>
-                          <a>
+                           
                             <li className="py-1 hover:text-yellow-700 text-sm font-bold">
                               My account
                             </li>
-                          </a>
+                           
                         </Link>
                         <Link href={'/sanitymyorders'}>
-                          <a>
+                           
                             <li className="py-1 hover:text-yellow-700 text-sm font-bold">
                               My Orders
                             </li>
-                          </a>
+                           
                         </Link>
                         <li
                           onClick={logout}

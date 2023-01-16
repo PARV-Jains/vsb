@@ -9,14 +9,14 @@ import client from '../utils/client';
 import { urlForThumbnail } from '../utils/image';
 import ProductItem from '../components/ProductItem';
 
-const Namkeens = ({ sanityproductss}) => {
+const Namkeens = ({ sanityproductss }) => {
   // const [state, setState] = useState({
   //   sanityproductss:[],
   //   error: '',
   //   loading: true,
   // });
   // const {loading, error } = state;
- 
+
   // useEffect(() => {
   //   const fetchSanityData = async () => {
   //     try {
@@ -32,23 +32,29 @@ const Namkeens = ({ sanityproductss}) => {
   return (
     <div>
       <>
-      <Head>
-        <title>Buy Fresh Namkeen - Vikas Sev Bhandar</title>
-        <meta
-          name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
-        />
-        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:title" content="Vikas Sev Bhandar" />
-  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:url" content="https://vsb.vercel.com/" />
-  <meta property="og:type" content="website" />
-      </Head>
+        <Head>
+          <title>Buy Fresh Namkeen - Vikas Sev Bhandar</title>
+          <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+          />
+          <meta
+            name="description"
+            content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+          />
+          <meta property="og:title" content="Vikas Sev Bhandar" />
+          <meta
+            property="og:description"
+            content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+          />
+          <meta property="og:url" content="https://vsb.vercel.com/" />
+          <meta property="og:type" content="website" />
+        </Head>
 
-      <section className="text-gray-600 body-font min-h-screen">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4 justify-center mx-5">
-            {/* {Object.keys(products).map((item) => {
+        <section className="text-gray-600 body-font min-h-screen">
+          <div className="container px-5 py-24 mx-auto">
+            <div className="flex flex-wrap -m-4 justify-center mx-5">
+              {/* {Object.keys(products).map((item) => {
               {
                 Object.keys(products).length === 0 && (
                   <p>
@@ -70,7 +76,7 @@ const Namkeens = ({ sanityproductss}) => {
                         className="m-auto  h-[30vh]  md:h-[36vh] block"
                         src={products[item].img}
                       />
-                    </a>
+                     
                     <div className="mt-4 text-center md:text-left">
                       <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                         Namkeen
@@ -119,26 +125,26 @@ const Namkeens = ({ sanityproductss}) => {
               );
             })} */}
 
-<div className="flex flex-wrap justify-center gap-5 ">
-     {sanityproductss.map((newsanityitem) => (
-<ProductItem  key={newsanityitem.slug.current} newsanityitem={newsanityitem} />   
-     ))}
-  </div>
+              <div className="flex flex-wrap justify-center gap-5 ">
+                {sanityproductss.map((newsanityitem) => (
+                  <ProductItem
+                    key={newsanityitem.slug.current}
+                    newsanityitem={newsanityitem}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-      </section>
-      
-      {/* <section className="text-gray-600 body-font min-h-screen">
+        {/* <section className="text-gray-600 body-font min-h-screen">
         <div className="container px-5 py-24 mx-auto"> */}
-        
+
         {/* </div>
       </section> */}
-    </>
+      </>
     </div>
-    
-    
-    );
+  );
 };
 
 export async function getServerSideProps(context) {
@@ -179,11 +185,12 @@ export async function getServerSideProps(context) {
   const sanityproductss = await client.fetch(productquery);
 
   return {
-    props: { 
+    props: {
       // products: JSON.parse(JSON.stringify(namkeens)),
-       sanityproducts, sanityproductss}, // will be passed to the page component as props
+      sanityproducts,
+      sanityproductss,
+    }, // will be passed to the page component as props
   };
 }
-
 
 export default Namkeens;

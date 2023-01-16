@@ -10,17 +10,23 @@ import client from '../utils/client';
 const Chips = ({ sanityproductss }) => {
   return (
     <div>
-       <Head>
+      <Head>
         <title>Buy Chips - Vikas Sev Bhandar</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
-        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:title" content="Vikas Sev Bhandar" />
-  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:url" content="https://vsb.vercel.com/" />
-  <meta property="og:type" content="website" />
+        <meta
+          name="description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:title" content="Vikas Sev Bhandar" />
+        <meta
+          property="og:description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:url" content="https://vsb.vercel.com/" />
+        <meta property="og:type" content="website" />
       </Head>
       {/* <section className="text-gray-600 body-font min-h-screen">
         <div className="container px-5 py-24 mx-auto">
@@ -45,7 +51,7 @@ const Chips = ({ sanityproductss }) => {
                         className="m-auto  h-[30vh]  md:h-[36vh] block"
                         src={products[item].img}
                       />
-                    </a>
+                     
                     <div className="mt-4 text-center md:text-left">
                       <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                         Chips
@@ -99,9 +105,10 @@ const Chips = ({ sanityproductss }) => {
 
       <div className="flex flex-wrap justify-center gap-5 ">
         {sanityproductss.map((newsanityitem) => (
-    
-            <ProductItem key={newsanityitem.slug.current} newsanityitem={newsanityitem} />
-      
+          <ProductItem
+            key={newsanityitem.slug.current}
+            newsanityitem={newsanityitem}
+          />
         ))}
       </div>
     </div>
@@ -141,9 +148,10 @@ export async function getServerSideProps(context) {
   const sanityproductss = await client.fetch(productquery);
 
   return {
-    props: { 
+    props: {
       // products: JSON.parse(JSON.stringify(chipss)),
-       sanityproductss }, // will be passed to the page component as props
+      sanityproductss,
+    }, // will be passed to the page component as props
   };
 }
 

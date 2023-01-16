@@ -55,13 +55,13 @@ Order Placed On {date && date.toLocaleDateString("en-IN",{weekday:'long',year:'n
             
 
               <div className="flex mb-4">
-                <a className="flex-grow py-2 text-lg px-1">Description</a>
+                <a className="flex-grow py-2 text-lg px-1">Description 
                 <a className="flex-grow text-center border-gray-300 py-2 text-lg px-1">
                   Quantity
-                </a>
+                 
                 <a className="flex-grow text-center border-gray-300 py-2 text-lg px-1">
                   Item Total
-                </a>
+                 
               </div>
 
               {Object.keys(products).map((key) => {

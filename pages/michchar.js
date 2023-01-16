@@ -7,21 +7,26 @@ import Head from 'next/head';
 import ProductItem from '../components/ProductItem';
 import client from '../utils/client';
 
-
-const Michchar = ({  sanityproductss  }) => {
+const Michchar = ({ sanityproductss }) => {
   return (
     <div>
-        <Head>
+      <Head>
         <title>Buy Michchar - Vikas Sev Bhandar</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
-        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:title" content="Vikas Sev Bhandar" />
-  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:url" content="https://vsb.vercel.com/" />
-  <meta property="og:type" content="website" />
+        <meta
+          name="description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:title" content="Vikas Sev Bhandar" />
+        <meta
+          property="og:description"
+          content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+        />
+        <meta property="og:url" content="https://vsb.vercel.com/" />
+        <meta property="og:type" content="website" />
       </Head>
       {/* <section className="text-gray-600 body-font min-h-screen">
         <div className="container px-5 py-24 mx-auto">
@@ -37,7 +42,7 @@ const Michchar = ({  sanityproductss  }) => {
                         className="m-auto  h-[30vh]  md:h-[36vh] block"
                         src={products[item].img}
                       />
-                    </a>
+                     
                     <div className="mt-4 text-center md:text-left">
                       <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                         Michchar
@@ -66,15 +71,20 @@ const Michchar = ({  sanityproductss  }) => {
           </div>
         </div>
       </section> */}
-       <div className="flex flex-wrap justify-center gap-5 ">
-       {Object.keys(sanityproductss).length ===0 && <p>soory , saara michchar  out of stock hai .naya stock jald aata hi hoga . stay tuned  </p>}
+      <div className="flex flex-wrap justify-center gap-5 ">
+        {Object.keys(sanityproductss).length === 0 && (
+          <p>
+            soory , saara michchar out of stock hai .naya stock jald aata hi
+            hoga . stay tuned{' '}
+          </p>
+        )}
         {sanityproductss.map((newsanityitem) => (
-    
-            <ProductItem key={newsanityitem.slug.current} newsanityitem={newsanityitem} />
-      
+          <ProductItem
+            key={newsanityitem.slug.current}
+            newsanityitem={newsanityitem}
+          />
         ))}
       </div>
-
     </div>
   );
 };
@@ -107,15 +117,15 @@ export async function getServerSideProps(context) {
   //     }
   //   }
   // }
-  
 
   const productquery = '*[_type == "sanityproduct"&& category == "michchar"]';
   const sanityproductss = await client.fetch(productquery);
 
   return {
-    props: { 
-      // products: JSON.parse(JSON.stringify(michchars)) , 
-      sanityproductss }, // will be passed to the page component as props
+    props: {
+      // products: JSON.parse(JSON.stringify(michchars)) ,
+      sanityproductss,
+    }, // will be passed to the page component as props
   };
 }
 

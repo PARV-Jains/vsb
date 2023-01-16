@@ -22,18 +22,10 @@ const Slug = ({
   error,
   sanityvariants,
   sanityproductssvar,
-  sanityvaritem
+  sanityvaritem,
 }) => {
-  const {
-    slug,
-    image,
-    name,
-    description,
-    price,
-    AvailableQty,
-    size,
-    grams
-  } = sanityproductss;
+  const { slug, image, name, description, price, AvailableQty, size, grams } =
+    sanityproductss;
 
   const id = sanityproductss._id;
   const [index, setIndex] = useState(0);
@@ -77,18 +69,14 @@ const Slug = ({
         progress: undefined,
       });
       // <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></Script>
-      
     }
-   
   };
 
   const onChangePin = (e) => {
     setPin(e.target.value);
   };
 
-  const refreshVariant = async(newSize) =>{
-   
- 
+  const refreshVariant = async (newSize) => {
     let url = `${
       process.env.NEXT_PUBLIC_HOST
     }/product/sanitySlug/variants/${name
@@ -100,7 +88,6 @@ const Slug = ({
     //   .replace(/\s/g, '')
     //   .toLowerCase()}-${newSize}`;
 
-  
     router.push(url);
   };
 
@@ -122,19 +109,24 @@ const Slug = ({
           draggable
           pauseOnHover
         />
-  <Head>
-        <title>Buy {name} - Vikas Sev Bhandar</title>
-        <meta
-          name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
-        />
-        <meta name="description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:title" content="Vikas Sev Bhandar" />
-  <meta property="og:description" content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now " />
-  <meta property="og:url" content="https://vsb.vercel.com/" />
-  <meta property="og:type" content="website" />
-  
-      </Head>
+        <Head>
+          <title>Buy {name} - Vikas Sev Bhandar</title>
+          <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+          />
+          <meta
+            name="description"
+            content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+          />
+          <meta property="og:title" content="Vikas Sev Bhandar" />
+          <meta
+            property="og:description"
+            content="Vikas Sev Bhandar is your one stop destination for the delicious Fresh namkeen ans snacks you always wanted . come shop now "
+          />
+          <meta property="og:url" content="https://vsb.vercel.com/" />
+          <meta property="og:type" content="website" />
+        </Head>
         <div className="container  px-5 py-16 mx-auto">
           <div className="lg:w-4/5  mx-auto flex flex-wrap">
             <img
@@ -221,7 +213,7 @@ const Slug = ({
                 >
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                 </svg>
-              </a>
+               
               <a className="text-gray-500">
                 <svg
                   fill="currentColor"
@@ -233,7 +225,7 @@ const Slug = ({
                 >
                   <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                 </svg>
-              </a>
+               
               <a className="text-gray-500">
                 <svg
                   fill="currentColor"
@@ -245,7 +237,7 @@ const Slug = ({
                 >
                   <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                 </svg>
-              </a>
+               
             </span>
           </div> */}
               <p className="leading-relaxed">{description}</p>
@@ -410,8 +402,11 @@ const Slug = ({
                 {AvailableQty > 0 && (
                   <>
                     <span className="title-font font-medium text-2xl text-gray-900">
-                      ₹{sanityproductss.size.includes('500g') ? price : sanityvaritem[0].price}
-                    </span> 
+                      ₹
+                      {sanityproductss.size.includes('500g')
+                        ? price
+                        : sanityvaritem[0].price}
+                    </span>
                     {/* <span className="ml-2 title-font font-medium text-gray-900">Hurry Up only {AvailableQty} itmes Left</span> */}
                   </>
                 )}
@@ -453,7 +448,7 @@ const Slug = ({
                           id,
                           AvailableQty,
                           grams,
-                        slug.current
+                          slug.current
                         )
                       }
                       className="flex ml-4 text-white bg-yellow-500 disabled:bg-yellow-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-yellow-600 rounded"
@@ -542,7 +537,7 @@ export const getStaticPaths = async () => {
   // const productvarquery = `*[_type == "sanityproductvar"]{
   //   slug {
   //    current
-  //   } 
+  //   }
   //  }`;
   // const variantquery = `*[_type == "sanityproduct"]{
   //   variants[0]{
@@ -551,7 +546,7 @@ export const getStaticPaths = async () => {
   //   }
   //   }
   //  }`;
-   const sanityitem = await client.fetch(productquery);
+  const sanityitem = await client.fetch(productquery);
   //  const variantinaction = await client.fetch(variantquery);
   // const sanityvaritem = await client.fetch(productvarquery);
   const paths = sanityitem.map((sanityproductss) => ({
@@ -577,11 +572,11 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params: { slug} }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   // const sanityquery = `*[_type == "product"]`;
   // const sanityproducts = await client.fetch(sanityquery);
-// const variantquery = `*[_type == "sanityproduct" && slug.current == '${slug}'][0].variants[0].slug`;
-// const variantinaction = await client.fetch(variantquery);
+  // const variantquery = `*[_type == "sanityproduct" && slug.current == '${slug}'][0].variants[0].slug`;
+  // const variantinaction = await client.fetch(variantquery);
 
   const productquery = `*[_type == "sanityproduct" && slug.current == '${slug}'][0]`;
   const sanityproductsquery = `*[_type == "sanityproduct"]`;
@@ -616,7 +611,7 @@ export const getStaticProps = async ({ params: { slug} }) => {
       sanityitem,
       sanityproductss,
       sanityproductssvar,
-      sanityvaritem
+      sanityvaritem,
       // sanityvariants: JSON.parse(JSON.stringify(colorSizeSlug))
     },
   };

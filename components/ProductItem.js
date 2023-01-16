@@ -8,16 +8,16 @@ const ProductItem = ({
 }) => {
   return (
     <div>
-      <Link passHref={true} href={`/product/sanitySlug/${slug.current}`}>
+      <Link passHref={true} href={`/product/sanitySlug/${slug.current}`} className="block relative  rounded overflow-hidden">
         <div className="p-4 hover:scale-110  transition duration-500 w-full  cursor-pointer  shadow-lg m-5">
-          <a className="block relative  rounded overflow-hidden">
+         
             <img
               alt="ecommerce"
               loading='lazy'
               className="m-auto  h-[30vh]  md:h-[36vh] block"
               src={urlForThumbnail(image && image[0])}
             />
-          </a>
+           
           <div className="mt-4 text-center md:text-left">
             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
               {category}
