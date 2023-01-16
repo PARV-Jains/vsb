@@ -6,7 +6,7 @@ import theme from "../../src/theme/theme";
 import { Grid } from '@mui/material';
 import AllProducts from '../../src/components/dashboard/ProductPerformance'
 import mongoose from 'mongoose';
-import Product from '../../models/Product';
+// import Product from '../../models/Product';
 
 
 const Mongoproducts = ({adminproducts}) => {
