@@ -234,7 +234,7 @@ const PrivacyPolicy = () => {
               href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
               rel="external nofollow noopener noreferrer"
               target="_blank"
-            >
+            />
               https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
              
           </li>
@@ -257,7 +257,7 @@ const PrivacyPolicy = () => {
             href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
             target="_blank"
             rel="noreferrer"
-          >
+          />
             Use of Cookies by Free Privacy Policy
            
           .
@@ -570,7 +570,7 @@ const PrivacyPolicy = () => {
               href="https://ww.vsb.com/privacy"
               rel="external nofollow noopener noreferrer"
               target="_blank"
-            >
+            />
               https://ww.vsb.com/contact
              
           </li>
