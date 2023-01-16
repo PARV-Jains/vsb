@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
                 href="https://www.vsb.com"
                 rel="external nofollow noopener noreferrer"
                 target="_blank"
-              >
+              />
                 https://www.vsb.com
                
             </p>

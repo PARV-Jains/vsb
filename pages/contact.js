@@ -51,7 +51,7 @@ const Contact = () => {
               rel="noreferrer"
               target="_blank"
               href="https://wa.me/9340317836?text=Hi,%20I%20need%20to%20enquire%20about%20products%20on%20VikasSevBhandar"
-            >
+            />
               +91 9340317836
              
             <br />
