@@ -56,7 +56,6 @@ import { myTheme } from './theme';
 export default defineConfig({
   basePath: '/studio',
   name: 'vsbweb',
-  
   title: 'VSB admin',
   projectId: process.env.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_STUDIO_DATASET,
