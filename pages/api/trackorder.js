@@ -1,5 +1,5 @@
 // import Order from '../../models/Order';
-import connectDB from '../../middleware/mongoose';
+// import connectDB from '../../middleware/mongoose';
 import jsonwebtoken from 'jsonwebtoken';
 
 import client from '../../utils/client';
