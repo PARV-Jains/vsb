@@ -51,7 +51,7 @@ const Home = ({ sanityproductss }) => {
                      src="/header.png"
                      height={200}
                      width={10000}
-                     className="h-80 object-cover"
+                     className="md:h-80"
                     //  className={cn(
                     //   'group-hover:opacity-75 duration-700 ease-in-out h-80 object-cover',
                     //   isLoading
@@ -72,7 +72,7 @@ const Home = ({ sanityproductss }) => {
 //                         ? 'grayscale blur-2xl scale-110'
 //                         : 'grayscale-0 blur-0 scale-100'
 //                     )}         
-className="h-80 object-cover"
+className="md:h-80 "
 
                           />
                </Link>
@@ -88,7 +88,7 @@ className="h-80 object-cover"
 //                         ? 'grayscale blur-2xl scale-110'
 //                         : 'grayscale-0 blur-0 scale-100'
 //                     )}   
-className="h-80 object-cover"
+className="md:h-80 "
 
                       />
                </Link>
@@ -104,7 +104,7 @@ className="h-80 object-cover"
 //                         ? 'grayscale blur-2xl scale-110'
 //                         : 'grayscale-0 blur-0 scale-100'
 //                     )}     
-className="h-80 object-cover"
+className="md:h-80 "
 
                        />
                </Link>
@@ -120,7 +120,7 @@ className="h-80 object-cover"
 //                         ? 'grayscale blur-2xl scale-110'
 //                         : 'grayscale-0 blur-0 scale-100'
 //                     )}    
-className="h-80 object-cover"
+className="md:h-80 "
 
                      />
                </Link>
@@ -136,7 +136,7 @@ className="h-80 object-cover"
 //                         ? 'grayscale blur-2xl scale-110'
 //                         : 'grayscale-0 blur-0 scale-100'
 //                     )}    
-className="h-80 object-cover"
+className="md:h-80 "
 
                        />
                </Link>
