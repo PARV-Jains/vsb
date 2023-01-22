@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import Link from 'next/link';
 import { BsFillBagCheckFill } from 'react-icons/bs';
@@ -7,7 +7,7 @@ import Script from 'next/script';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Checkout = ({ cart,clearCart, subTotal, addToCart, removeFromCart }) => {
+const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [sanityname, setSanityname] = useState('');
@@ -18,102 +18,101 @@ const Checkout = ({ cart,clearCart, subTotal, addToCart, removeFromCart }) => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [disabled, setDisabled] = useState(true);
-const [user, setUser] = useState({value : null})
-const [sanityuser, setSanityuser] = useState({value : null})
-useEffect(() => {
-  const myuser = JSON.parse(localStorage.getItem('myuser'))
-  if(myuser && myuser.token){
-    setUser(myuser)
-    setEmail(myuser.email);
-    fetchData(myuser.token)
-  }
-  // const sanityuserinfo = JSON.parse(localStorage.getItem('sanityuserinfo'))
-  // if(sanityuserinfo && sanityuserinfo.token){
-  //   setSanityuser(sanityuserinfo)
-  //   setSanityemail(sanityuserinfo.email);
-  //   fetchData(sanityuserinfo.token)
+  const [user, setUser] = useState({ value: null });
+  const [sanityuser, setSanityuser] = useState({ value: null });
+  useEffect(() => {
+    const myuser = JSON.parse(localStorage.getItem('myuser'));
+    if (myuser && myuser.token) {
+      setUser(myuser);
+      setEmail(myuser.email);
+      fetchData(myuser.token);
+    }
+    // const sanityuserinfo = JSON.parse(localStorage.getItem('sanityuserinfo'))
+    // if(sanityuserinfo && sanityuserinfo.token){
+    //   setSanityuser(sanityuserinfo)
+    //   setSanityemail(sanityuserinfo.email);
+    //   fetchData(sanityuserinfo.token)
 
-  // }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
+    // }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  useEffect(() => {
+    if (
+      name.length > 3 &&
+      email.length > 3 &&
+      phone.length > 3 &&
+      address.length > 3 &&
+      pincode.length > 3
+    ) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [name, email, phone, address, pincode]);
 
-useEffect(() => {
+  
+  //   if (
+  //     sanityname?.length > 3 &&
+  //     sanityemail.length > 3 &&
+  //     phone.length > 3 &&
+  //     address.length > 3 &&
+  //     pincode.length > 3
+  //   ) {
+  //     setDisabled(false);
+  //   } else {
+  //     setDisabled(true);
+  //   }
+  // }, [sanityname,sanityemail,phone,address,pincode])
 
-  if (
-    name.length > 3 &&
-    email.length > 3 &&
-    phone.length > 3 &&
-    address.length > 3 &&
-    pincode.length > 3
-  ) {
-    setDisabled(false);
-  } else {
-    setDisabled(true);
-  }
-}, [name,email,phone,address,pincode])
-//   if (
-//     sanityname?.length > 3 &&
-//     sanityemail.length > 3 &&
-//     phone.length > 3 &&
-//     address.length > 3 &&
-//     pincode.length > 3
-//   ) {
-//     setDisabled(false);
-//   } else {
-//     setDisabled(true);
-//   }
-// }, [sanityname,sanityemail,phone,address,pincode])
-
-const fetchData = async(token) => {
-  let data = {token: token}
-  let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+  const fetchData = async (token) => {
+    let data = { token: token };
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
       method: 'POST', // or 'PUT'
       headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    let res = await a.json()
-    setName(res.name)
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    let res = await a.json();
+    setName(res.name);
     // setSanityname(res.name)
-    setAddress(res.address)
-    setPincode(res.pincode)
-    setPhone(res.phone)
-    getPincode(res.pincode)
-}
-// const fetchData = async(token) => {
-//   let data = {token: token}
-//   let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getsanityuser`, {
-//       method: 'POST', // or 'PUT'
-//       headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//     })
-//     let res = await a.json()
-//     // setName(res.name)
-//     setSanityname(res.sanityname)
-//     setAddress(res.address)
-//     setPincode(res.pincode)
-//     setPhone(res.phone)
-//     getPincode(res.pincode)
-// }
+    setAddress(res.address);
+    setPincode(res.pincode);
+    setPhone(res.phone);
+    getPincode(res.pincode);
+  };
+  // const fetchData = async(token) => {
+  //   let data = {token: token}
+  //   let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getsanityuser`, {
+  //       method: 'POST', // or 'PUT'
+  //       headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify(data),
+  //     })
+  //     let res = await a.json()
+  //     // setName(res.name)
+  //     setSanityname(res.sanityname)
+  //     setAddress(res.address)
+  //     setPincode(res.pincode)
+  //     setPhone(res.phone)
+  //     getPincode(res.pincode)
+  // }
 
-const getPincode = async(pin) => {
-  let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
-  let pinJson = await pins.json();
-  if (Object.keys(pinJson).includes(pin)) {
-    setState(pinJson[pin][1]);
-    setCity(pinJson[pin][0]);
-  } else {
-    setState('');
-    setCity('');
-  }
-}
+  const getPincode = async (pin) => {
+    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+    let pinJson = await pins.json();
+    if (Object.keys(pinJson).includes(pin)) {
+      setState(pinJson[pin][1]);
+      setCity(pinJson[pin][0]);
+    } else {
+      setState('');
+      setCity('');
+    }
+  };
 
   const handleChange = async (e) => {
-   
     if (e.target.name == 'name') {
       setName(e.target.value);
       // setSanityname(e.target.value);
@@ -127,14 +126,13 @@ const getPincode = async(pin) => {
     } else if (e.target.name == 'pincode') {
       setPincode(e.target.value);
       if (e.target.value.length == 6) {
-        getPincode(e.target.value)
-      }
-        else {
+        getPincode(e.target.value);
+      } else {
         setState('');
         setCity('');
       }
     }
-  
+
     // setTimeout(() => {
     //   if (
     //     name.length > 3 &&
@@ -171,11 +169,11 @@ const getPincode = async(pin) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    })
+    });
 
-    let txnRes = await a.json()
-     if (txnRes.success) {
-      let txnToken = txnRes.txnToken
+    let txnRes = await a.json();
+    if (txnRes.success) {
+      let txnToken = txnRes.txnToken;
 
       var config = {
         root: '',
@@ -195,18 +193,18 @@ const getPincode = async(pin) => {
         },
       };
 
-      window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+      window.Paytm.CheckoutJS.init(config)
+        .then(function onSuccess() {
           // after successfully updating configuration, invoke JS Checkout
           window.Paytm.CheckoutJS.invoke();
         })
         .catch(function onError(error) {
           console.log('error => ', error);
         });
-    } 
-    else {
-      console.log(txnRes.error)
-      if(txnRes.cartClear){
-        clearCart()
+    } else {
+      console.log(txnRes.error);
+      if (txnRes.cartClear) {
+        clearCart();
       }
       toast.error(txnRes.error, {
         position: 'top-left',
@@ -216,9 +214,9 @@ const getPincode = async(pin) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="container px-2 sm:m-auto min-h-screen">
@@ -234,7 +232,7 @@ const getPincode = async(pin) => {
         pauseOnHover
       />
       <Head>
-        <title>Checkout -  Vikas Sev Bhandar</title>
+        <title>Checkout - Vikas Sev Bhandar</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
@@ -270,26 +268,30 @@ const getPincode = async(pin) => {
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
-{user && user.token? <input
-              value={user.email}
-//  {sanityuser && sanityuser.token? <input
-              //  value={sanityuser.email}
-              type="email"
-              id="email"
-              name="email"
-              // name="sanityemail"
-              className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              readOnly  /> : 
-            <input
-              onChange={handleChange}
-              // value={sanityemail}
-              value={email}
-              type="email"
-              id="email"
-              // name="sanityemail"
-              name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />}
+            {user && user.token ? (
+              <input
+                value={user.email}
+                //  {sanityuser && sanityuser.token? <input
+                //  value={sanityuser.email}
+                type="email"
+                id="email"
+                name="email"
+                // name="sanityemail"
+                className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                readOnly
+              />
+            ) : (
+              <input
+                onChange={handleChange}
+                // value={sanityemail}
+                value={email}
+                type="email"
+                id="email"
+                // name="sanityemail"
+                name="email"
+                className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            )}
           </div>
         </div>
       </div>
@@ -315,7 +317,7 @@ const getPincode = async(pin) => {
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="phone" className="leading-7 text-sm text-gray-600">
-             10 Digit Phone Number
+              10 Digit Phone Number
             </label>
             <input
               onChange={handleChange}

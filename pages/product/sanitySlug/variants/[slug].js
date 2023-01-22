@@ -120,11 +120,32 @@ const Slug = ({
 
         <div className="container px-5 py-16 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <img
+            {/* <img
               alt="ecommerce"
               className="lg:w-1/2 w-full lg:h-auto px-24  object-cover object-top rounded"
               src={urlFor(image && image[index])}
-            />
+            /> */}
+<div>
+          <div className="product-detail-container">
+          <div>
+          <div className="image-container">
+            <img src={urlFor(image && image[index])} className="product-detail-image" />
+          </div>
+          <div className="small-images-container">
+            {image?.map((item, i) => (
+              <img 
+                key={i}
+                src={urlFor(item)}
+                className={i === index ? 'small-image selected-image' : 'small-image'}
+                onMouseEnter={() => setIndex(i)}
+              />
+            ))}
+          </div>
+        </div>
+        </div>
+        </div>
+
+
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 Vikas Sev Bhandar
@@ -455,7 +476,7 @@ const Slug = ({
               )}
               
             </div>
-            {image?.map((item, i) => (
+            {/* {image?.map((item, i) => (
               <img
                 key={i}
                 src={urlFor(item)}
@@ -464,7 +485,7 @@ const Slug = ({
                 }
                 onMouseMove={() => setIndex(i)}
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </section>

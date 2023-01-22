@@ -21,6 +21,7 @@ import client from '../utils/client';
 import { BsCash } from 'react-icons/bs';
 import { SiPaytm } from 'react-icons/si';
 // import { Store } from '../utils/Store';
+import Loading from '../components/Loader';
 
 const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   const router = useRouter();
@@ -28,6 +29,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
   const [sanityname, setSanityname] = useState('');
+  const [loading, setLoading] = useState(false);
   const [sanityemail, setSanityemail] = useState('');
   const [isPaid, setIspaid] = useState(false);
   const [codStatus, setCodstatus] = useState(false);
@@ -234,6 +236,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   // };
 
   const initiatePayment = async () => {
+    setLoading(true);
     let oid = Math.floor(Math.random() * Date.now());
     //get a transaction token
     const data = {
@@ -267,6 +270,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
 
     let txnRes = await a.json();
     if (txnRes.success) {
+      setLoading(false);
       let txnToken = txnRes.txnToken;
       var config = {
         root: '',
@@ -355,6 +359,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   };
 
   const paymentmethodHandler = async (e) => {
+    setLoading(true);
     e.preventDefault();
     let oid = Math.floor(Math.random() * Date.now());
     //get a transaction token
@@ -464,6 +469,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
         draggable
         pauseOnHover
       />
+      {loading && <Loading/>}
       <Head>
         <title>Checkout - Vikas Sev Bhandar</title>
         <meta

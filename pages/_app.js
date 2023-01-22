@@ -11,6 +11,35 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Router from 'next/router';
 import Loading from '../components/Loader';
 
+// function Spinner() {
+//   const router = useRouter();
+
+//   const [loading, setLoading] = useState(false);
+
+//   useEffect(() => {
+//     const handleStart = (url) => url !== router.asPath && setLoading(true);
+//     const handleComplete = (url) => url === router.asPath && setLoading(false);
+
+//     router.events.on('routeChangeStart', handleStart);
+//     router.events.on('routeChangeComplete', handleComplete);
+//     router.events.on('routeChangeEnd', handleComplete);
+
+//     return () => {
+//       router.events.off('routeChangeStart', handleStart);
+//       router.events.off('routeChangeComplete', handleComplete);
+//       router.events.off('routeChangeEnd', handleComplete);
+//     };
+//   });
+
+//   return (
+//     loading && (
+//       <div className="spinner-wrapper">  
+//         <div className="spinner"></div>
+//       </div>
+//     )
+//   );
+// }
+
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [sidebar, setSidebar] = useState(false);
@@ -256,6 +285,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       {/* {loading && <Loading/>} */}
+      {/* <Spinner /> */}
       <NextNProgress
         options={{ easing: 'ease', speed: 500, showSpinner: false }}
         color="#f2d00d"

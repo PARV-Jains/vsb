@@ -147,7 +147,7 @@ const Signup = () => {
         <div className="max-w-md w-full space-y-8">
           <div>
             <img
-              className="mx-auto h-12 w-auto"
+              className="mx-auto h-20 w-auto"
               src="/img2.png"
               alt="Workflow"
             />
@@ -156,14 +156,9 @@ const Signup = () => {
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or
-              <Link href={'/login'}>
-                <a
-                  href="#"
-                  className="font-medium text-yellow-600 hover:text-yellow-500"
-                />
+              <Link href={'/login'}  className="font-medium text-yellow-600 hover:text-yellow-500">
                   {' '}
                   Login
-                 
               </Link>
             </p>
           </div>

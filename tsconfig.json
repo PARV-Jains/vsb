@@ -7,7 +7,7 @@
     "./**/*.ts",
     "./**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "pages/trial.jsx"  ],
   "compilerOptions": {
     "target": "es5",
     "lib": [
