@@ -25,12 +25,13 @@ const Orders = () => {
       );
       let res = await a.json();
       setSanityorders(res.sanityorders);
+      
     };
     if (!localStorage.getItem('sanityuserinfo')) {
       router.push('/');
     } else {
       fetchOrders();
-    }
+        }
 
     // const secfetchOrders = async () => {
     //   try {
@@ -64,6 +65,7 @@ const Orders = () => {
       </Head>
       <div className="container mx-auto">
         <h1 className="font-semibold text-2xl text-center p-6">My Orders</h1>
+        <h3 className="font-semibold text-xl text-center p-6">Please Refresh For New Orders</h3>
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">

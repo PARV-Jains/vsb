@@ -11,17 +11,36 @@ import { MdOutlineDeliveryDining } from 'react-icons/md';
 import { FaTshirt } from 'react-icons/fa';
 import Script from 'next/script'
 import { NovuProvider, PopoverNotificationCenter, NotificationBell } from '@novu/notification-center';
+// import { previewData } from 'next/headers';
+// import {PreviewSuspense} from 'next-sanity/preview'
+// import {lazy} from 'react'
+// import {DocumentsCount, query} from '../components/DocumentsCount'
+// import {clients} from '../lib/sanity.client'
 
 
 const Home = ({ sanityproductss }) => {
+// const Home = ({ sanityproductss , preview, data }) => {
+  // if (preview) {
+  //   return (
+  //     <PreviewSuspense fallback="Loading...">
+  //       <PreviewDocumentsCount />
+  //     </PreviewSuspense>
+  //   )
+  // }
+  // return <DocumentsCount data={data} />
   const [isLoading, setLoading] = useState(true);
+  // const PreviewDocumentsCount = lazy(() => import('../components/PreviewDocumentsCount'))
+
 
   function cn(...classes) {
     return classes.filter(Boolean).join(' ');
   }
+// if(previewData()){
+//   return <div>preview mode</div>
+// }
 
   return (
-    
+    // <DocumentsCount data={data} />,
     <div>
        <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""/>
        <Head>
@@ -325,6 +344,28 @@ className="md:h-80 "
     </div>
   );
 };
+
+// export const getStaticProps = async ({preview = false}) => {
+//   if (preview) {
+//     return {props: {preview}}
+//   }
+
+//   const data = await client.fetch(query)
+
+//   return {props: {preview, data}}
+// }
+
+// export default function IndexPage({preview, data}) {
+//   if (preview) {
+//     return (
+//       <PreviewSuspense fallback="Loading...">
+//         <PreviewDocumentsCount />
+//       </PreviewSuspense>
+//     )
+//   }
+//   return <DocumentsCount data={data} />
+// }
+
 export const getServerSideProps = async () => {
   const sanityquery = '*[_type == "product"]';
   const sanityproducts = await client.fetch(sanityquery);

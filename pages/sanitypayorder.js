@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 // import mongoose from 'mongoose';
 import Head from 'next/head';
 import client from '../utils/client';
-import { runFireworks } from '../utils/fireworks';
+// import { runFireworks } from '../utils/fireworks';
 import axios from 'axios';
 import Image from 'next/image';
 import { Link } from '@mui/material';

@@ -354,4 +354,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
   };
 };
 
+export const revalidate = 30 ; 
+
 export default Slug;

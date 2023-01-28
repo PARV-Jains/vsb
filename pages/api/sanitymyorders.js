@@ -8,7 +8,7 @@ const handler = async (req, res) => {
   const token = req.body.token;
   const data = jsonwebtoken.verify(token, process.env.JWT_SECRET);
   const sanityorders = await client.fetch(
-    `*[_type == "sanityorder" && sanityemail == $email]`,{
+    `*[_type == "sanityorder" && sanityemail == $email ]  | order(_createdAt desc)`,{
       email:data.email,
     }
     );
