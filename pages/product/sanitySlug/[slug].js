@@ -223,10 +223,7 @@ const Slug = ({
                 {AvailableQty > 0 && (
                   <>
                     <span className="title-font font-medium text-2xl text-gray-900">
-                      ₹
-                      {sanityproductss.size.includes('500g')
-                        ? price
-                        : sanityvaritem[0].price}
+                      ₹{price}
                     </span>
                   </>
                 )}
@@ -309,6 +306,7 @@ const Slug = ({
     </>
   );
 };
+export const revalidate = 30;
 
 export const getStaticPaths = async () => {
   const productquery = `*[_type == "sanityproduct"]{
@@ -351,9 +349,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
       sanityproductssvar,
       sanityvaritem,
     },
+    revalidate: 30,
   };
 };
 
-export const revalidate = 30 ; 
+// export const revalidate = 30;
 
 export default Slug;
