@@ -161,8 +161,10 @@ const Slug = ({
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                 {name}({grams})
               </h1>
-
-              <p className="leading-relaxed">{description}</p>
+<div className="text-xs md:text-sm">
+  <div className="leading-relaxed mb-2">{description}</div>
+              {/* <p className="leading-relaxed">{description}</p> */}
+              </div>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 {AvailableQty <= 5 && AvailableQty != 0 && (
                   <span className=" text-red-500 font-medium text-md ">
@@ -307,6 +309,21 @@ const Slug = ({
   );
 };
 export const revalidate = 30;
+
+// export async function generateStaticParams() {
+//   const query = groq`*[_type == 'post']
+//   {
+//      slug
+//   }
+//   `;
+
+//   const slugs: Post[] = await client.fetch(query);
+//   const slugRoutes = slugs.map((slug) => slug.slug.current);
+
+//   return slugRoutes.map((slug) => ({
+//      slug,
+//   }));
+// }
 
 export const getStaticPaths = async () => {
   const productquery = `*[_type == "sanityproduct"]{

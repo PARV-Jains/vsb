@@ -96,10 +96,10 @@ export default function Search({ sanityproductss }) {
         <meta property="og:type" content="website" />
       </Head>
       <div>
-        <div container spacing={2}>
-          <div item md={9}>
-            <div container justifycontent="space-between" alignitems="center">
-              <div item>
+        <div className="container spacing={2}">
+          <div className="item md={9}">
+            <div className="container justify-between align-middle">
+              <div className="item">
                 {newsanityproductss && newsanityproductss.length !== 0
                   ? newsanityproductss.length
                   : 'No'}{' '}
