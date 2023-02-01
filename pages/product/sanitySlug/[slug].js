@@ -111,21 +111,6 @@ const Slug = ({
 
         <div className="container  px-5 py-16 mx-auto">
           <div className="lg:w-4/5  mx-auto flex flex-wrap">
-            {/* {image?.map((item, i) => (
-              <img
-                key={i}
-                src={urlFor(item)}
-                className={
-                  i === index ? 'small-image selected-image' : 'small-image'
-                }
-                onMouseEnter={() => setIndex(i)}
-              />
-            ))} */}
-            {/* <img
-              alt="ecommerce"
-              className="lg:w-1/2 w-full lg:h-auto px-24  object-cover object-top rounded "
-              src={urlFor(image && image[index])}
-              /> */}
 
             <div>
               <div className="product-detail-container">
@@ -163,7 +148,6 @@ const Slug = ({
               </h1>
 <div className="text-xs md:text-sm">
   <div className="leading-relaxed mb-2">{description}</div>
-              {/* <p className="leading-relaxed">{description}</p> */}
               </div>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 {AvailableQty <= 5 && AvailableQty != 0 && (
