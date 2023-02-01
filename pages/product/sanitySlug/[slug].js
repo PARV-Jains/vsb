@@ -350,7 +350,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
       sanityproductssvar,
       sanityvaritem,
     },
-    revalidate: 30,
+    revalidate: 30, //this is working 
   };
 };
 

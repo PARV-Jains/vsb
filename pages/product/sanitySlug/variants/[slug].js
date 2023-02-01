@@ -310,6 +310,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
       sanityproductss,
 
     },
+    revalidate: 30, //this is working
   };
 };
 
