@@ -359,7 +359,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   };
 
   const paymentmethodHandler = async (e) => {
-    setLoading(true);
+    
     e.preventDefault();
     let oid = Math.floor(Math.random() * Date.now());
     //get a transaction token
@@ -401,6 +401,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
       `*[_type == "sanityorder"] | order(_createdAt desc) [0] ._id`
     );
     if (cashRes.success) {
+      setLoading(true);
       // router.push(`/sanitypayorder?clearCart=1&_id=${sanityorderid}`);
       router.push(`/waiting`);
       const options = {
