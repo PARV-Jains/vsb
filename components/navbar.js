@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import {Transition} from '@headlessui/react'
+import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import {
   AiOutlineShoppingCart,
@@ -12,9 +12,9 @@ import { BsFillBagCheckFill } from 'react-icons/bs';
 import { MdAccountCircle } from 'react-icons/md';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
-import {GiHamburgerMenu} from 'react-icons/gi';
-import {RiArrowDropDownLine,RiNotificationBadgeLine} from 'react-icons/ri';
-import {IoMdNotifications} from 'react-icons/io';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { RiArrowDropDownLine, RiNotificationBadgeLine } from 'react-icons/ri';
+import { IoMdNotifications } from 'react-icons/io';
 
 const Navbar = ({
   logout,
@@ -37,26 +37,32 @@ const Navbar = ({
   useEffect(() => {
     Object.keys(cart).length === 0 && setSidebar(false);
     // Object.keys(cart).length === 0 && setSidebar(true);
-    let exempted = ['/checkout', '/order', '/orders', '/myaccount','/sanitycheckout','/sanitypayorder','sanitymyorders','sanitymyaccount'];
+    let exempted = [
+      '/checkout',
+      '/order',
+      '/orders',
+      '/myaccount',
+      '/sanitycheckout',
+      '/sanitypayorder',
+      'sanitymyorders',
+      'sanitymyaccount',
+    ];
     if (exempted.includes(router.pathname)) {
       setSidebar(false);
     }
-  }, [cart,router.pathname]);
-
-  
-
+  }, [cart, router.pathname]);
 
   const toggleCart = () => {
     setSidebar(!sidebar);
   };
   const ref = useRef();
-    const clickPoint = useRef();
-    const handleFocus = () => {
-      clickPoint.current.style.display = "none";
+  const clickPoint = useRef();
+  const handleFocus = () => {
+    clickPoint.current.style.display = 'none';
   };
 
   const handleBlur = () => {
-    clickPoint.current.style.display = "block";
+    clickPoint.current.style.display = 'block';
   };
 
   const [query, setQuery] = useState('');
@@ -67,8 +73,6 @@ const Navbar = ({
     e.preventDefault();
     router.push(`/search?query=${query}`);
   };
-
- 
 
   return (
     <>
@@ -82,23 +86,18 @@ const Navbar = ({
           }}
           className="fixed  right-9 hidden md:block top-5 z-30 cursor-pointer"
         >
-          
           {dropdown && (
             <div className="absolute right-5 bg-white shadow-lg border top-5 py-4 rounded-md px-5 w-32 z-30">
               <ul>
                 <Link href={'/myprofile'}>
-                   
-                    <li className="py-1 hover:text-yellow-700 text-sm font-bold">
-                      My account
-                    </li>
-                   
+                  <li className="py-1 hover:text-yellow-700 text-sm font-bold">
+                    My account
+                  </li>
                 </Link>
                 <Link href={'/sanitymyorders'}>
-                   
-                    <li className="py-1 hover:text-yellow-700 text-sm font-bold">
-                      My Orders
-                    </li>
-                   
+                  <li className="py-1 hover:text-yellow-700 text-sm font-bold">
+                    My Orders
+                  </li>
                 </Link>
                 <li
                   onClick={logout}
@@ -112,32 +111,33 @@ const Navbar = ({
           {/* {user.value && (
             <MdAccountCircle className=" hover:text-yellow-500 text-xl md:text-2xl mx-2 cursor-pointer" />
           )} */}
-           
-          {sanityuser.value && (  
+
+          {sanityuser.value && (
             <MdAccountCircle className=" hover:text-yellow-500 text-xl md:text-2xl mx-2 cursor-pointer" />
           )}
-         
-         
         </span>
       )}
-      
-      
+
       <div
         className={`sticky w-full border-b border-gray-200  flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-sm  top-0 z-10 bg-white ${
           !sidebar && `overflow-hidden`
         }`}
       >
-        <div className="logo ">
-          <Link href='/'>
-             
-              <Image alt="" src="/main-logo.png" width="256" height="48" />
-             
+        <div className="logo flex flex-col justify-center items-center xl:flex-row">
+          <Link href="/">
+            <Image
+              alt=""
+              src="/logos.png"
+              width="256"
+              height="48"
+              className="w-[90vw] md:w-[40vw] md:max-w-none max-w-[80%] py-4 xs:py-0 xl:w-[14vw]"
+            />
           </Link>
         </div>
         <div className="nav hidden md:block">
-        {/* <div className="p-10"> */}
+          {/* <div className="p-10"> */}
 
-        {/* <div id="dropdown" className="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+          {/* <div id="dropdown" className="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
     <ul className="py-1" aria-labelledby="dropdownButton">
       <li>
         <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard 
@@ -154,8 +154,8 @@ const Navbar = ({
     </ul>
 </div> */}
 
-{/* </div> */}
-{/* {itemList && (
+          {/* </div> */}
+          {/* {itemList && (
   
            <li className="fixed  w-[20%] -ml-4 mt-10 z-10 " style={{opacity: "1", transform: "none", transition: "opacity 304ms cubic-bezier(0.4, 0, 0.2, 1) 0ms , transform 202ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"}}>
             <div className="bg-gray-50 flex">
@@ -179,39 +179,33 @@ const Navbar = ({
           //   setItemList(false);
           // }}
           > */}
-            <li 
-           className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Namkeen 
-           {/* <RiArrowDropDownLine className="text-3xl"/> */}
-           </li>
-               
+              <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">
+                Namkeen
+                {/* <RiArrowDropDownLine className="text-3xl"/> */}
+              </li>
             </Link>
             <Link href={'/mix'}>
-            
-                <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Mix 
+              <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">
+                Mix
                 {/* <RiArrowDropDownLine className="text-3xl"/> */}
-                </li>
-               
+              </li>
             </Link>
-           
+
             <Link href={'/michchar'}>
-         
-                <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Michchar 
+              <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">
+                Michchar
                 {/* <RiArrowDropDownLine className="text-3xl"/> */}
-                </li>
-               
+              </li>
             </Link>
             <Link href={'/chips'}>
-            
-                <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">Chips
-                 {/* <RiArrowDropDownLine className="text-3xl"/> */}
-                </li>
-               
+              <li className="flex hover:text-yellow-500 mr-1 px-3 py-2 rounded-md h-20 items-center relative text-lg lg:text-xl">
+                Chips
+                {/* <RiArrowDropDownLine className="text-3xl"/> */}
+              </li>
             </Link>
           </ul>
-     
-
         </div>
-        
+
         {/* <div className="mr-10 flex md:hidden">
 
         <button
@@ -298,68 +292,83 @@ const Navbar = ({
 							</div>
 						</div>
 					)}
-				</Transition> */
-        }
+				</Transition> */}
 
-
-
- <form onSubmit={submitHandler}> 
-<div className="items-center px-4 flex justify-center " >
+        <form onSubmit={submitHandler}>
+          <div className="items-center px-4 flex justify-center ">
             <div className="relative mr-3 mt-3 mb-3">
-                <div className="absolute top-3 left-3 items-center"ref={clickPoint} >
-                    <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
-                </div>
-                <input
-                    type="text"
-                    name="query"
-                     onChange={queryChangeHandler}
-                    className="block p-2 pl-10 w-70 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:pl-3"
-                    placeholder={ placeholder || "Laung Ki Namkeen"}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                />
+              <div
+                className="absolute top-3 left-3 items-center"
+                ref={clickPoint}
+              >
+                <svg
+                  className="w-5 h-5 text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="text"
+                name="query"
+                onChange={queryChangeHandler}
+                className="block p-2 pl-10 w-70 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:pl-3"
+                placeholder={placeholder || 'Laung Ki Namkeen'}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
             </div>
-        </div>
+          </div>
         </form>
         <div className="cursor-pointer items-center cart absolute right-0 top-5 mx-5 flex ">
-       
           {!sanityuser.value && (
-          
             <Link href={'/login'}>
-               
-                <button className="bg-yellow-500 hidden md:block rounded-md px-2 py-1 pb-1.5 text-white mx-3 text-sm">
-                  Login
-                </button>
-               
+              <button className="bg-yellow-500 hidden md:block rounded-md px-2 py-1 pb-1.5 text-white mx-3 text-sm">
+                Login
+              </button>
             </Link>
           )}
-<span onClick={toggleCart} className="relative inline-block cursor-pointer">
-          <AiOutlineShoppingCart
+          <span
             onClick={toggleCart}
-            className="text-xl hidden md:block md:text-2xl"
-            
-          />
-         {Object.keys(cart).map((k) =>{
-          return( 
-            <span key={k} className="absolute hidden md:block top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">{cart[k].qty}</span>
-)})}
-         </span>
+            className="relative inline-block cursor-pointer"
+          >
+            <AiOutlineShoppingCart
+              onClick={toggleCart}
+              className="text-xl hidden md:block md:text-2xl"
+            />
+            {Object.keys(cart).map((k) => {
+              return (
+                <span
+                  key={k}
+                  className="absolute hidden md:block top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"
+                >
+                  {cart[k].qty}
+                </span>
+              );
+            })}
+          </span>
         </div>
-       
-        {sanityuser.email == "admin@vsb.com" && ( 
-        
+
+        {sanityuser.email == 'admin@vsb.com' && (
           <>
             <IoMdNotifications className=" hover:text-yellow-500  text-2xl md:text-3xl mx-2 cursor-pointer" />
-            </>
-          )
-        }
+          </>
+        )}
         <div
           ref={ref}
           className={`w-72  h-[100vh] z-10 sideCart overflow-y-scroll absolute top-0 bg-yellow-100 px-8 py-10 transition-all ${
             sidebar ? 'right-0' : '-right-96'
           }`}
         >
-          <h2 className="text-xl md:text-2xl m-0 text-heading font-bold ">Shopping Cart</h2>
+          <h2 className="text-xl md:text-2xl m-0 text-heading font-bold ">
+            Shopping Cart
+          </h2>
           <span
             onClick={toggleCart}
             className="absolute top-5 right-2 cursor-pointer text-2xl text-yellow-500"
@@ -433,13 +442,10 @@ const Navbar = ({
             >
               Clear cart
             </button>
-            
           </div>
         </div>
       </div>
-    
     </>
-    
   );
 };
 

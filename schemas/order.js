@@ -12,6 +12,7 @@ import { MdBorderColor } from 'react-icons/md';
 // }
 
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   name: 'sanityorder',
   title: 'Orders',
